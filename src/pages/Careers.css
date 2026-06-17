@@ -1,0 +1,29 @@
+.careers-hero { background: var(--bg-surface); }
+.careers-hero-glow { position:absolute; width:600px; height:600px; top:-100px; right:-100px; background:radial-gradient(circle, rgba(74,108,247,0.15), transparent 70%); pointer-events:none; }
+.careers-culture { background: var(--bg-base); }
+.culture-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; }
+.culture-values-list { display: flex; flex-direction: column; gap: 1rem; }
+.culture-value-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+.culture-check { color: var(--cyan); flex-shrink: 0; margin-top: 3px; }
+.careers-benefits { background: var(--bg-surface); }
+.benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xl); }
+.benefit-card { text-align: center; }
+.benefit-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.careers-roles { background: var(--bg-base); }
+.roles-list { display: flex; flex-direction: column; gap: var(--space-md); }
+.role-card { padding: var(--space-xl); }
+.role-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-lg); }
+.role-info { flex: 1; }
+.role-meta { display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.role-detail { display: flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--text-muted); }
+.role-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.875rem; }
+.careers-general { background: var(--bg-surface); }
+.general-cta { text-align: center; padding: var(--space-4xl); max-width: 600px; margin: 0 auto; }
+.apply-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(8px); }
+.apply-modal { width: 100%; max-width: 620px; max-height: 90vh; overflow-y: auto; padding: var(--space-2xl); }
+.apply-form { display: flex; flex-direction: column; gap: var(--space-lg); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+.apply-form-actions { display: flex; gap: 1rem; justify-content: flex-end; }
+.apply-success { text-align: center; padding: var(--space-2xl); display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+@media (max-width: 1024px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .culture-grid { grid-template-columns: 1fr; } .benefits-grid { grid-template-columns: 1fr; } .role-header { flex-direction: column; } .form-row { grid-template-columns: 1fr; } }

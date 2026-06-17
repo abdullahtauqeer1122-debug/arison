@@ -1,0 +1,57 @@
+.about-hero { background: var(--bg-surface); }
+.about-hero-glow-1 { position:absolute; width:600px; height:600px; top:-150px; right:-100px; background:radial-gradient(circle, rgba(0,207,253,0.12), transparent 70%); border-radius:50%; pointer-events:none; }
+.about-hero-glow-2 { position:absolute; width:500px; height:500px; bottom:-100px; left:-100px; background:radial-gradient(circle, rgba(123,94,255,0.12), transparent 70%); border-radius:50%; pointer-events:none; }
+
+.about-stats-band { padding: var(--space-3xl) 0; background: var(--bg-base); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.about-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.about-stat-item { text-align: center; padding: var(--space-xl); border-right: 1px solid var(--border); }
+.about-stat-item:last-child { border-right: none; }
+
+.about-story { background: var(--bg-surface); }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: start; }
+
+.mv-section { background: var(--bg-base); }
+.mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+.mv-card { position: relative; overflow: hidden; }
+.mv-icon { width: 60px; height: 60px; border-radius: var(--radius-lg); background: var(--cyan-dim); border: 1px solid rgba(0,207,253,0.2); display: flex; align-items: center; justify-content: center; color: var(--cyan); margin-bottom: 1.25rem; }
+.mv-icon-purple { background: var(--purple-dim); border-color: rgba(123,94,255,0.2); color: var(--purple); }
+.mv-icon-blue { background: rgba(74,108,247,0.1); border-color: rgba(74,108,247,0.2); color: var(--blue); }
+
+.values-section { background: var(--bg-surface); }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+
+.timeline-section { background: var(--bg-base); }
+.timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+.timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--cyan), var(--purple)); transform: translateX(-50%); }
+.timeline-item { display: flex; margin-bottom: var(--space-2xl); position: relative; z-index: 1; }
+.timeline-item.left { justify-content: flex-end; padding-right: calc(50% + 2rem); }
+.timeline-item.right { justify-content: flex-start; padding-left: calc(50% + 2rem); }
+.timeline-dot { position: absolute; left: 50%; top: 1.5rem; width: 12px; height: 12px; border-radius: 50%; background: var(--grad); transform: translateX(-50%); box-shadow: 0 0 12px rgba(0,207,253,0.5); z-index: 2; }
+.timeline-card { width: 100%; }
+.timeline-year { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 0.25rem; }
+
+.leadership-section { background: var(--bg-surface); }
+.leadership-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; }
+.leadership-points { display: flex; flex-direction: column; gap: 0.75rem; }
+.leadership-point { display: flex; align-items: center; gap: 0.75rem; }
+.lp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); flex-shrink: 0; }
+.leadership-card { text-align: center; padding: var(--space-3xl); }
+.lc-icon { color: var(--cyan); margin: 0 auto 1.5rem; }
+.lc-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: 2rem; }
+.lc-metric { text-align: center; }
+.lc-metric-val { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.lc-metric-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+@media (max-width: 1024px) {
+  .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .mv-grid, .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .story-grid, .leadership-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .mv-grid, .values-grid { grid-template-columns: 1fr; }
+  .timeline-line { left: 1rem; }
+  .timeline-item.left, .timeline-item.right { justify-content: flex-start; padding-left: 3rem; padding-right: 0; }
+  .timeline-dot { left: 1rem; }
+  .lc-metrics { grid-template-columns: 1fr; }
+}
