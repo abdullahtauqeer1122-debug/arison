@@ -31,12 +31,15 @@ export default function Videos() {
   const [videos, setVideos] = useState([])
 
   useEffect(() => {
+    const videosVersion = localStorage.getItem('arison_videos_version')
     const stored = localStorage.getItem('arison_videos')
-    if (stored) {
-      setVideos(JSON.parse(stored))
-    } else {
-      setVideos(initialVideos)
+    if (!stored || videosVersion !== 'v2') {
+      // Reset to new web dev videos
       localStorage.setItem('arison_videos', JSON.stringify(initialVideos))
+      localStorage.setItem('arison_videos_version', 'v2')
+      setVideos(initialVideos)
+    } else {
+      setVideos(JSON.parse(stored))
     }
   }, [])
 
