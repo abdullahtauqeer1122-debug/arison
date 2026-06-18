@@ -1,6 +1,7 @@
 # React + Vite
 
 <!-- Triggering Vercel deployment after making the repository public -->
+<!-- Fresh trigger after Vercel Git reconnect -->
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
