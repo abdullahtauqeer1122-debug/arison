@@ -39,6 +39,17 @@ const values = [
 export default function Careers() {
   const [selectedRole, setSelectedRole] = useState(null)
   const [applied, setApplied] = useState(false)
+  const [roles, setRoles] = useState([])
+
+  useEffect(() => {
+    const stored = localStorage.getItem('arison_jobs')
+    if (stored) {
+      setRoles(JSON.parse(stored))
+    } else {
+      setRoles([])
+      localStorage.setItem('arison_jobs', JSON.stringify([]))
+    }
+  }, [])
 
   const handleApply = (e) => {
     e.preventDefault()
@@ -50,20 +61,28 @@ export default function Careers() {
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
       {/* Hero */}
       <section className="page-hero careers-hero" aria-label="Careers hero">
-        <div className="careers-hero-glow" />
         <div className="container page-hero-content">
-          <AnimatedSection>
-            <div className="section-label">Join Our Team</div>
-            <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
-              Build the Future of <span className="text-grad">Enterprise Technology</span>
-            </h1>
-            <p className="body-lg text-muted" style={{ maxWidth: '580px', marginBottom: '2rem' }}>
-              We're looking for engineers, designers, and strategists who are excellent at what they do and genuinely care about the impact their work creates.
-            </p>
-            <a href="#open-roles" className="btn btn-primary btn-lg">
-              View Open Roles <ArrowRight size={18} />
-            </a>
-          </AnimatedSection>
+          <div className="careers-hero-grid">
+            <AnimatedSection>
+              <div className="section-label">Join Our Team</div>
+              <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
+                Build the Future of <span className="text-grad">Enterprise Technology</span>
+              </h1>
+              <p className="body-lg text-muted" style={{ maxWidth: '580px', marginBottom: '2rem' }}>
+                We're looking for engineers, designers, and strategists who are excellent at what they do and genuinely care about the impact their work creates.
+              </p>
+              <a href="#open-roles" className="btn btn-primary btn-lg">
+                View Open Roles <ArrowRight size={18} />
+              </a>
+            </AnimatedSection>
+            <AnimatedSection animation="reveal-right" className="careers-hero-img-wrap">
+              <img 
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" 
+                alt="Arison NextStack team collaborating" 
+                className="careers-hero-img"
+              />
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -119,34 +138,43 @@ export default function Careers() {
       <section className="section careers-roles" id="open-roles" aria-label="Open positions">
         <div className="container">
           <AnimatedSection className="section-header">
-            <div className="section-label">Open Positions</div>
-            <h2 className="section-title">Current <span className="text-grad">Opportunities</span></h2>
-            <p className="section-subtitle">All roles are fully remote. We hire based on excellence, regardless of geography.</p>
+            <div className="section-label">Opportunities</div>
+            <h2 className="section-title">Current <span className="text-grad">Vacancies</span></h2>
+            {roles.length > 0 ? (
+              <p className="section-subtitle">We are actively seeking talented individuals for the roles listed below. Apply today!</p>
+            ) : (
+              <p className="section-subtitle">We are not actively hiring or offering open roles at the moment. Check back in the future!</p>
+            )}
           </AnimatedSection>
-          <div className="roles-list stagger">
-            {openRoles.map((role, i) => (
-              <AnimatedSection key={role.title} delay={i * 50} className="role-card card">
-                <div className="role-header">
-                  <div className="role-info">
-                    <h3 className="heading-md" style={{ marginBottom: '0.5rem' }}>{role.title}</h3>
-                    <div className="role-meta">
-                      <span className="badge badge-cyan">{role.dept}</span>
-                      <span className="role-detail"><Clock size={12} /> {role.type}</span>
-                      <span className="role-detail"><MapPin size={12} /> {role.location}</span>
-                      <span className="role-detail"><DollarSign size={12} /> {role.level}</span>
-                    </div>
+          
+          {roles.length > 0 ? (
+            <div className="roles-grid stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px', marginTop: '2rem' }}>
+              {roles.map((role, idx) => (
+                <AnimatedSection key={role.id || idx} delay={idx * 60} className="role-card card" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span className="badge badge-purple">{role.dept}</span>
+                    <span className="body-xs text-muted" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Clock size={12} /> {role.type}</span>
                   </div>
-                  <button className="btn btn-primary btn-sm" onClick={() => setSelectedRole(role)}>
-                    Apply Now <ArrowRight size={13} />
-                  </button>
-                </div>
-                <p className="body-sm text-muted" style={{ marginTop: '0.875rem' }}>{role.desc}</p>
-                <div className="role-skills">
-                  {role.skills.map(s => <span key={s} className="badge badge-purple">{s}</span>)}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+                  <h3 className="heading-md" style={{ margin: '0.5rem 0 0.25rem' }}>{role.title}</h3>
+                  <p className="body-sm text-muted" style={{ flexGrow: 1, minHeight: '60px' }}>{role.desc}</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '1rem' }}>
+                    {role.skills && role.skills.map(s => <span key={s} className="badge badge-blue" style={{ fontSize: '0.7rem' }}>{s}</span>)}
+                  </div>
+                  <button className="btn btn-primary btn-sm" onClick={() => setSelectedRole(role)} style={{ alignSelf: 'flex-start' }}>Apply Now <ArrowRight size={12} /></button>
+                </AnimatedSection>
+              ))}
+            </div>
+          ) : (
+            <div className="card" style={{ padding: '3rem', textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+              <h3 className="heading-lg" style={{ marginBottom: '1rem' }}>No Active Openings</h3>
+              <p className="body-md text-secondary" style={{ maxWidth: '600px', margin: '0 auto 1.5rem' }}>
+                We are not offering any active vacancies right now. However, you can submit your details and CV/portfolio directly to our database, and we will reach out if a matching position opens up.
+              </p>
+              <a href="mailto:arisonnextstacktechnologies@gmail.com" className="btn btn-primary" style={{ display: 'inline-flex', margin: '0 auto' }}>
+                Submit CV to Talent Pool <ArrowRight size={16} />
+              </a>
+            </div>
+          )}
         </div>
       </section>
 

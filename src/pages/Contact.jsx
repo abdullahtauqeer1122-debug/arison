@@ -34,8 +34,47 @@ export default function Contact() {
   const [projectSent, setProjectSent] = useState(false)
   const [consultSent, setConsultSent] = useState(false)
 
-  const handleProject = (e) => { e.preventDefault(); setProjectSent(true) }
-  const handleConsult = (e) => { e.preventDefault(); setConsultSent(true) }
+  const handleProject = (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const lead = {
+      id: Date.now(),
+      type: 'Business Inquiry',
+      name: fd.get('name'),
+      company: fd.get('company'),
+      email: fd.get('email'),
+      phone: fd.get('phone'),
+      subject: fd.get('subject'),
+      message: fd.get('message'),
+      date: new Date().toLocaleDateString(),
+      status: 'unread'
+    };
+    const current = JSON.parse(localStorage.getItem('arison_contact_leads') || '[]');
+    current.push(lead);
+    localStorage.setItem('arison_contact_leads', JSON.stringify(current));
+    setProjectSent(true);
+  }
+
+  const handleConsult = (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const lead = {
+      id: Date.now(),
+      type: 'Project Consultation',
+      name: fd.get('name'),
+      email: fd.get('email'),
+      projectType: fd.get('projectType'),
+      budget: fd.get('budget'),
+      timeline: fd.get('timeline'),
+      message: fd.get('message'),
+      date: new Date().toLocaleDateString(),
+      status: 'unread'
+    };
+    const current = JSON.parse(localStorage.getItem('arison_contact_leads') || '[]');
+    current.push(lead);
+    localStorage.setItem('arison_contact_leads', JSON.stringify(current));
+    setConsultSent(true);
+  }
 
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
@@ -66,8 +105,11 @@ export default function Contact() {
               </div>
               <h3 className="heading-md" style={{ marginBottom: '0.5rem' }}>Call Us</h3>
               <p className="body-sm text-muted" style={{ marginBottom: '1rem' }}>Speak directly with our team</p>
-              <a href="tel:+923297333609" className="contact-link">+92 329 7333609</a>
               <a href="tel:+923004003075" className="contact-link">+92 300 4003075</a>
+              <a href="tel:+923027724609" className="contact-link">+92 302 7724609</a>
+              <a href="https://wa.me/923004003075" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm" style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }}>
+                Chat on WhatsApp
+              </a>
             </AnimatedSection>
             <AnimatedSection delay={100} className="contact-card card">
               <div className="contact-card-icon contact-card-icon-purple">
@@ -116,28 +158,28 @@ export default function Contact() {
                   <div className="form-row-2">
                     <div className="form-group">
                       <label className="form-label">Full Name *</label>
-                      <input className="form-input" placeholder="Your full name" required />
+                      <input className="form-input" name="name" placeholder="Your full name" required />
                     </div>
                     <div className="form-group">
                       <label className="form-label">Company *</label>
-                      <input className="form-input" placeholder="Company name" required />
+                      <input className="form-input" name="company" placeholder="Company name" required />
                     </div>
                   </div>
                   <div className="form-group">
                     <label className="form-label">Email Address *</label>
-                    <input className="form-input" type="email" placeholder="your@company.com" required />
+                    <input className="form-input" name="email" type="email" placeholder="your@company.com" required />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Phone Number</label>
-                    <input className="form-input" placeholder="+1 (555) 000-0000" />
+                    <input className="form-input" name="phone" placeholder="+1 (555) 000-0000" />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Subject *</label>
-                    <input className="form-input" placeholder="Brief subject line" required />
+                    <input className="form-input" name="subject" placeholder="Brief subject line" required />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Message *</label>
-                    <textarea className="form-textarea" placeholder="Tell us how we can help..." required />
+                    <textarea className="form-textarea" name="message" placeholder="Tell us how we can help..." required />
                   </div>
                   <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
                     Send Message <ArrowRight size={16} />
@@ -163,16 +205,16 @@ export default function Contact() {
                   <div className="form-row-2">
                     <div className="form-group">
                       <label className="form-label">Full Name *</label>
-                      <input className="form-input" placeholder="Your full name" required />
+                      <input className="form-input" name="name" placeholder="Your full name" required />
                     </div>
                     <div className="form-group">
                       <label className="form-label">Email *</label>
-                      <input className="form-input" type="email" placeholder="your@company.com" required />
+                      <input className="form-input" name="email" type="email" placeholder="your@company.com" required />
                     </div>
                   </div>
                   <div className="form-group">
                     <label className="form-label">Project Type *</label>
-                    <select className="form-select" required defaultValue="">
+                    <select className="form-select" name="projectType" required defaultValue="">
                       <option value="" disabled>Select project type</option>
                       <option>Custom Software Development</option>
                       <option>Web Application</option>
@@ -188,7 +230,7 @@ export default function Contact() {
                   </div>
                   <div className="form-group">
                     <label className="form-label">Estimated Budget</label>
-                    <select className="form-select" defaultValue="">
+                    <select className="form-select" name="budget" defaultValue="">
                       <option value="" disabled>Select budget range</option>
                       <option>Under $10,000</option>
                       <option>$10,000 – $25,000</option>
@@ -200,7 +242,7 @@ export default function Contact() {
                   </div>
                   <div className="form-group">
                     <label className="form-label">Timeline</label>
-                    <select className="form-select" defaultValue="">
+                    <select className="form-select" name="timeline" defaultValue="">
                       <option value="" disabled>Select timeline</option>
                       <option>ASAP (within 1 month)</option>
                       <option>1–3 months</option>
@@ -211,7 +253,7 @@ export default function Contact() {
                   </div>
                   <div className="form-group">
                     <label className="form-label">Project Description *</label>
-                    <textarea className="form-textarea" placeholder="Describe your project — what problem are you solving, who are your users, and what success looks like..." required style={{ minHeight: '160px' }} />
+                    <textarea className="form-textarea" name="message" placeholder="Describe your project — what problem are you solving, who are your users, and what success looks like..." required style={{ minHeight: '160px' }} />
                   </div>
                   <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
                     Request Consultation <ArrowRight size={16} />

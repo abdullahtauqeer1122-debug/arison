@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ExternalLink, X } from 'lucide-react'
 import AnimatedSection from '../components/common/AnimatedSection'
 import './Projects.css'
 
-const projects = [
+export const projects = [
   {
     id: 1,
     title: 'MedCore Healthcare Platform',
@@ -17,6 +17,7 @@ const projects = [
     results: ['60% reduction in administrative errors', '45% faster patient discharge processing', '$2.1M annual savings in operational costs', 'AI module achieving 91% diagnostic accuracy'],
     tech: ['React', 'Node.js', 'Python', 'PostgreSQL', 'TensorFlow', 'AWS', 'Docker'],
     color: '#00CFFD',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const projects = [
     results: ['75% reduction in manual reporting time', '98% inventory accuracy achieved', 'Finance close cycle reduced from 15 days to 3 days', 'Executive decision-making speed improved by 50%'],
     tech: ['.NET Core', 'React', 'SQL Server', 'Azure', 'Power BI', 'Redis'],
     color: '#7B5EFF',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 3,
@@ -41,6 +43,7 @@ const projects = [
     results: ['89% accuracy in sentiment classification', 'Critical issue detection time reduced from 72 hours to 15 minutes', '28% improvement in Net Promoter Score over 6 months', 'Processed 1M+ interactions in the first month'],
     tech: ['Python', 'FastAPI', 'OpenAI API', 'React', 'PostgreSQL', 'Celery', 'Redis'],
     color: '#4A6CF7',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 4,
@@ -53,6 +56,7 @@ const projects = [
     results: ['Page load reduced from 6.2s to 0.8s', 'Cart abandonment reduced from 78% to 34%', '120% revenue increase in first quarter post-launch', 'Mobile conversion rate improved by 85%'],
     tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis', 'AWS CloudFront', 'Elasticsearch'],
     color: '#00CFFD',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 5,
@@ -65,6 +69,7 @@ const projects = [
     results: ['120,000+ concurrent users supported', '99.7% platform uptime during exam periods', '40% improvement in student completion rates', 'Faculty admin time reduced by 65%'],
     tech: ['React', 'Django', 'PostgreSQL', 'WebRTC', 'AWS', 'Redis', 'Celery'],
     color: '#7B5EFF',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 6,
@@ -77,6 +82,7 @@ const projects = [
     results: ['Real-time visibility across entire fleet achieved', 'On-time delivery improved from 67% to 94%', 'Fuel costs reduced by 22% through route optimization', 'Customer complaints down 71%'],
     tech: ['React Native', 'Node.js', 'MongoDB', 'Socket.io', 'AWS IoT', 'Google Maps API'],
     color: '#4A6CF7',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 7,
@@ -89,6 +95,7 @@ const projects = [
     results: ['Production efficiency improved by 35%', 'Quality defect rate reduced by 48%', 'Costing accuracy improved to 99.2%', 'Management reporting time cut from 3 days to 2 hours'],
     tech: ['React', 'Laravel', 'MySQL', 'PWA', 'Chart.js', 'Laravel Echo'],
     color: '#00CFFD',
+    image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 8,
@@ -101,6 +108,7 @@ const projects = [
     results: ['Digital banking platform launched in 8 months', 'Mobile banking app achieving 4.8 star rating', 'Transaction processing time reduced by 80%', 'Digital adoption reaching 60% of customers in Year 1'],
     tech: ['Java Spring Boot', 'React', 'Oracle DB', 'Kafka', 'Docker', 'Kubernetes'],
     color: '#7B5EFF',
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 9,
@@ -113,6 +121,7 @@ const projects = [
     results: ['147 agencies onboarded in first 6 months', 'Average agency lead conversion improved by 42%', 'Platform MRR reaching $85,000 by Month 8', 'Agency setup time reduced from months to 2 days'],
     tech: ['Next.js', 'Prisma', 'PostgreSQL', 'Stripe', 'Mapbox', 'SendGrid', 'Vercel'],
     color: '#4A6CF7',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 10,
@@ -125,16 +134,35 @@ const projects = [
     results: ['HR admin hours reduced from 800 to 120 per month', 'Payroll processing time reduced from 3 days to 4 hours', 'Recruitment time-to-hire reduced by 38%', 'Compliance reporting fully automated'],
     tech: ['React', 'Python', 'FastAPI', 'PostgreSQL', 'OpenAI API', 'Celery', 'AWS'],
     color: '#00CFFD',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
 const categories = ['All', 'Healthcare', 'Enterprise', 'AI', 'E-Commerce', 'Education', 'Logistics', 'Textile', 'Finance', 'SaaS', 'Automation']
 
 export default function Projects() {
+  const [projectsList, setProjectsList] = useState([])
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
+  const [searchQuery, setSearchQuery] = useState('')
 
-  const filtered = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory)
+  useEffect(() => {
+    const stored = localStorage.getItem('arison_projects')
+    if (stored) {
+      setProjectsList(JSON.parse(stored))
+    } else {
+      setProjectsList(projects)
+      localStorage.setItem('arison_projects', JSON.stringify(projects))
+    }
+  }, [])
+
+  const filtered = projectsList.filter(p => {
+    const matchesCategory = activeCategory === 'All' || p.category.toLowerCase() === activeCategory.toLowerCase();
+    const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          p.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          (p.tech && p.tech.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())));
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
@@ -154,9 +182,19 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Filter */}
+      {/* Filter & Search Bar */}
       <div className="projects-filter-bar">
         <div className="container">
+          <div className="search-bar-container" style={{ marginBottom: '1.5rem', width: '100%', maxWidth: '480px' }}>
+            <input 
+              type="text" 
+              className="admin-input" 
+              placeholder="Search projects by name, keyword, or tech stack..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              style={{ padding: '12px 18px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}
+            />
+          </div>
           <div className="tabs">
             {categories.map(cat => (
               <button key={cat} className={`tab-btn${activeCategory === cat ? ' active' : ''}`} onClick={() => setActiveCategory(cat)}>
@@ -174,12 +212,19 @@ export default function Projects() {
             <AnimatePresence>
               {filtered.map((p, i) => (
                 <AnimatedSection key={p.id} delay={i * 60} className="project-card card" tag="article">
-                  <div className="project-card-top" style={{ background: `linear-gradient(135deg, ${p.color}18, ${p.color}08)` }}>
-                    <div className="project-category-badge badge" style={{ background: `${p.color}20`, color: p.color, border: `1px solid ${p.color}30` }}>
-                      {p.category}
+                  <div className="project-card-image-wrap">
+                    <img 
+                      src={p.image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'} 
+                      alt={p.title} 
+                      className="project-card-img" 
+                    />
+                    <div className="project-badge-overlay">
+                      <div className="project-category-badge badge" style={{ background: `rgba(255,255,255,0.95)`, color: 'var(--text-primary)', border: `1px solid var(--border)` }}>
+                        {p.category}
+                      </div>
                     </div>
-                    <div className="project-tags">
-                      {p.tags.map(t => <span key={t} className="badge badge-purple">{t}</span>)}
+                    <div className="project-tags-overlay">
+                      {p.tags.slice(0, 2).map(t => <span key={t} className="badge" style={{ background: 'rgba(15,23,42,0.85)', color: '#fff' }}>{t}</span>)}
                     </div>
                   </div>
                   <div className="project-card-body">

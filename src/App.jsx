@@ -17,6 +17,11 @@ import Testimonials from './pages/Testimonials'
 import Careers from './pages/Careers'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import Admin from './pages/Admin'
+import Pricing from './pages/Pricing'
+import Videos from './pages/Videos'
+import CaseStudies from './pages/CaseStudies'
+
 
 export default function App() {
   const location = useLocation()
@@ -25,13 +30,15 @@ export default function App() {
     window.scrollTo(0, 0)
   }, [location.pathname])
 
+  const isAdmin = location.pathname === '/info@arison.pk'
+
   return (
     <>
       <div className="noise-overlay" aria-hidden="true" />
       <Cursor />
       <Loader />
       <ScrollToTop />
-      <Navbar />
+      {!isAdmin && <Navbar />}
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
@@ -45,9 +52,13 @@ export default function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/info@arison.pk" element={<Admin />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/videos" element={<Videos />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
         </Routes>
       </AnimatePresence>
-      <Footer />
+      {!isAdmin && <Footer />}
     </>
   )
 }

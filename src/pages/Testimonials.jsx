@@ -1,10 +1,11 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Star, Quote } from 'lucide-react'
 import AnimatedSection from '../components/common/AnimatedSection'
 import './Testimonials.css'
 
-const featured = {
+const initialFeatured = {
   name: 'Dr. Ayesha Rahman',
   role: 'Chief Digital Officer',
   company: 'National Health Network',
@@ -13,7 +14,8 @@ const featured = {
   result: '60% reduction in patient processing time',
 }
 
-const testimonials = [
+export const initialTestimonials = [
+  { name: 'Dr. Ayesha Rahman', role: 'Chief Digital Officer', company: 'National Health Network', text: 'Partnering with Arison NextStack Technologies was the single best technology decision our organization made in the last decade. They didn\'t just build us a system — they became true strategic partners.', rating: 5, metric: '60% reduction in patient processing time' },
   { name: 'James Okonkwo', role: 'CEO', company: 'RetailEdge International', text: 'The e-commerce platform Arison NextStack delivered handles 50,000+ daily transactions with zero downtime. Within 90 days of launch, our revenue was up 120%. The ROI justified the investment in the first quarter alone.', rating: 5, metric: '120% revenue increase' },
   { name: 'Priya Kapoor', role: 'VP Engineering', company: 'FinanceCore Systems', text: 'We had tried two other vendors before Arison NextStack. They were the first team that actually understood our regulatory requirements and built a system that our compliance team could fully approve. On-time, on-budget, and exceptional quality.', rating: 5, metric: '100% compliance achieved' },
   { name: 'Michael Torres', role: 'Operations Director', company: 'LogiTrack Global', text: 'Our fleet visibility went from zero to real-time tracking of 500+ vehicles overnight. On-time delivery rates jumped from 67% to 94%. The ROI was visible within 30 days of go-live.', rating: 5, metric: '27% improvement in on-time delivery' },
@@ -33,6 +35,31 @@ const results = [
 ]
 
 export default function Testimonials() {
+  const [testimonialsList, setTestimonialsList] = useState([])
+  const [featuredTestimonial, setFeaturedTestimonial] = useState(initialFeatured)
+
+  useEffect(() => {
+    const stored = localStorage.getItem('arison_testimonials')
+    if (stored) {
+      const parsed = JSON.parse(stored)
+      setTestimonialsList(parsed)
+      if (parsed.length > 0) {
+        // Use the first testimonial as featured if available or initialFeatured
+        setFeaturedTestimonial({
+          name: parsed[0].name,
+          role: parsed[0].role,
+          company: parsed[0].company,
+          text: parsed[0].text || parsed[0].content,
+          rating: parsed[0].rating || 5,
+          result: parsed[0].metric || `${parsed[0].company} Partner`
+        })
+      }
+    } else {
+      setTestimonialsList(initialTestimonials)
+      localStorage.setItem('arison_testimonials', JSON.stringify(initialTestimonials))
+    }
+  }, [])
+
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
       {/* Hero */}
@@ -66,35 +93,37 @@ export default function Testimonials() {
       </section>
 
       {/* Featured Testimonial */}
-      <section className="section featured-testi-section" aria-label="Featured testimonial">
-        <div className="container">
-          <AnimatedSection animation="reveal-scale" className="featured-testi-card card">
-            <div className="featured-testi-glow-1" />
-            <div className="featured-testi-glow-2" />
-            <div className="featured-quote-icon">
-              <Quote size={40} />
-            </div>
-            <div className="featured-testi-stars">
-              {Array.from({ length: featured.rating }).map((_, i) => (
-                <Star key={i} size={20} fill="#F59E0B" color="#F59E0B" />
-              ))}
-            </div>
-            <blockquote className="featured-testi-text">
-              "{featured.text}"
-            </blockquote>
-            <div className="featured-testi-footer">
-              <div className="featured-testi-author">
-                <div className="featured-avatar">{featured.name[0]}</div>
-                <div>
-                  <div className="featured-name">{featured.name}</div>
-                  <div className="featured-role">{featured.role}, {featured.company}</div>
-                </div>
+      {featuredTestimonial && (
+        <section className="section featured-testi-section" aria-label="Featured testimonial">
+          <div className="container">
+            <AnimatedSection animation="reveal-scale" className="featured-testi-card card">
+              <div className="featured-testi-glow-1" />
+              <div className="featured-testi-glow-2" />
+              <div className="featured-quote-icon">
+                <Quote size={40} />
               </div>
-              <div className="badge badge-cyan">{featured.result}</div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+              <div className="featured-testi-stars">
+                {Array.from({ length: featuredTestimonial.rating }).map((_, i) => (
+                  <Star key={i} size={20} fill="#F59E0B" color="#F59E0B" />
+                ))}
+              </div>
+              <blockquote className="featured-testi-text">
+                "{featuredTestimonial.text || featuredTestimonial.content}"
+              </blockquote>
+              <div className="featured-testi-footer">
+                <div className="featured-testi-author">
+                  <div className="featured-avatar">{featuredTestimonial.name[0]}</div>
+                  <div>
+                    <div className="featured-name">{featuredTestimonial.name}</div>
+                    <div className="featured-role">{featuredTestimonial.role}, {featuredTestimonial.company}</div>
+                  </div>
+                </div>
+                <div className="badge badge-cyan">{featuredTestimonial.result || featuredTestimonial.metric}</div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      )}
 
       {/* Testimonials Grid */}
       <section className="section testi-grid-section" aria-label="Client testimonials">
@@ -104,17 +133,17 @@ export default function Testimonials() {
             <h2 className="section-title">Real People. <span className="text-grad">Real Results.</span></h2>
           </AnimatedSection>
           <div className="testi-cards-grid stagger">
-            {testimonials.map((t, i) => (
-              <AnimatedSection key={t.name} delay={i * 60} className="testi-grid-card card">
+            {testimonialsList.map((t, i) => (
+              <AnimatedSection key={t.name + i} delay={i * 60} className="testi-grid-card card">
                 <div className="testi-stars-row">
-                  {Array.from({ length: t.rating }).map((_, j) => (
+                  {Array.from({ length: t.rating || 5 }).map((_, j) => (
                     <Star key={j} size={13} fill="#F59E0B" color="#F59E0B" />
                   ))}
                 </div>
-                <p className="testi-card-text">"{t.text}"</p>
-                <div className="badge badge-cyan" style={{ alignSelf: 'flex-start', marginBottom: '0.75rem' }}>{t.metric}</div>
+                <p className="testi-card-text">"{t.text || t.content}"</p>
+                {(t.metric || t.company) && <div className="badge badge-cyan" style={{ alignSelf: 'flex-start', marginBottom: '0.75rem' }}>{t.metric || t.company}</div>}
                 <div className="testi-card-author">
-                  <div className="testi-card-avatar">{t.name[0]}</div>
+                  <div className="testi-card-avatar">{t.name ? t.name[0] : 'C'}</div>
                   <div>
                     <div className="testi-card-name">{t.name}</div>
                     <div className="testi-card-role">{t.role}, {t.company}</div>

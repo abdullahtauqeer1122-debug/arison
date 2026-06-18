@@ -12,19 +12,32 @@ const navLinks = [
       { label: 'About Us', path: '/about', desc: 'Our story & mission' },
       { label: 'Process', path: '/process', desc: 'How we work' },
       { label: 'Careers', path: '/careers', desc: 'Join our team' },
+      { label: 'Testimonials', path: '/testimonials', desc: 'Client success stories' },
     ],
   },
   {
     label: 'Solutions',
     children: [
-      { label: 'Services', path: '/services', desc: 'What we build' },
-      { label: 'Technology', path: '/technology', desc: 'Our tech stack' },
-      { label: 'Industries', path: '/industries', desc: 'Sectors we serve' },
+      { label: 'Services', path: '/services', desc: 'Full Stack & custom software' },
+      { label: 'Technology', path: '/technology', desc: 'Our high-performance stack' },
+      { label: 'Industries', path: '/industries', desc: 'Sectors we specialize in' },
+      { label: 'Pricing Plan', path: '/pricing', desc: 'Affordable web & SaaS packages' },
     ],
   },
-  { label: 'Projects', path: '/projects' },
-  { label: 'Insights', path: '/blog' },
-  { label: 'Testimonials', path: '/testimonials' },
+  {
+    label: 'Portfolio',
+    children: [
+      { label: 'Our Projects', path: '/projects', desc: 'Explore our built applications' },
+      { label: 'Case Studies', path: '/case-studies', desc: 'Deep dive into key projects' },
+    ],
+  },
+  {
+    label: 'Insights',
+    children: [
+      { label: 'Articles & Blogs', path: '/blog', desc: 'Tech articles & tutorials' },
+      { label: 'Video Briefings', path: '/videos', desc: 'Interactive briefings & guides' },
+    ],
+  },
 ]
 
 export default function Navbar() {
@@ -32,6 +45,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const navRef = useRef(null)
+  const mobileMenuRef = useRef(null)
   const closeTimer = useRef(null)
 
   useEffect(() => {
@@ -42,7 +56,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClick = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) {
+      const inNav = navRef.current && navRef.current.contains(e.target)
+      const inMobile = mobileMenuRef.current && mobileMenuRef.current.contains(e.target)
+      if (!inNav && !inMobile) {
         setActiveDropdown(null)
         setMobileOpen(false)
       }
@@ -65,7 +81,8 @@ export default function Navbar() {
   }
 
   return (
-    <header className={`navbar${scrolled ? ' scrolled' : ''}`} ref={navRef}>
+    <>
+    <header className={`navbar${scrolled ? ' scrolled' : ''}${mobileOpen ? ' menu-open' : ''}`} ref={navRef}>
       <div className="navbar-inner container">
         <Link to="/" className="navbar-logo" onClick={() => setMobileOpen(false)}>
           <Logo size={36} showText={true} />
@@ -80,7 +97,12 @@ export default function Navbar() {
                 onMouseEnter={() => handleDropdownEnter(item.label)}
                 onMouseLeave={handleDropdownLeave}
               >
-                <button className="nav-link nav-link-drop" aria-haspopup="true" aria-expanded={activeDropdown === item.label}>
+                <button 
+                  className="nav-link nav-link-drop" 
+                  aria-haspopup="true" 
+                  aria-expanded={activeDropdown === item.label}
+                  onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                >
                   {item.label}
                   <ChevronDown size={14} className="drop-icon" />
                 </button>
@@ -121,43 +143,51 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`mobile-menu${mobileOpen ? ' open' : ''}`} aria-hidden={!mobileOpen}>
-        <nav className="mobile-nav">
-          {navLinks.map((item) =>
-            item.children ? (
-              <div key={item.label} className="mobile-group">
-                <div className="mobile-group-label">{item.label}</div>
-                {item.children.map((child) => (
-                  <Link
-                    key={child.path}
-                    to={child.path}
-                    className="mobile-link mobile-child"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {child.label}
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) => `mobile-link${isActive ? ' active' : ''}`}
-                end={item.path === '/'}
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </NavLink>
-            )
-          )}
-          <div className="mobile-cta">
-            <Link to="/contact" className="btn btn-primary" onClick={() => setMobileOpen(false)}>
-              Start a Project <ArrowRight size={16} />
-            </Link>
-          </div>
-        </nav>
-      </div>
     </header>
+
+    {/* Mobile Menu — outside header so it's not clipped by fixed height */}
+    <div className={`mobile-menu${mobileOpen ? ' open' : ''}`} aria-hidden={!mobileOpen} ref={mobileMenuRef}>
+      <nav className="mobile-nav">
+        {navLinks.map((item) =>
+          item.children ? (
+            <div key={item.label} className="mobile-group">
+              <div className="mobile-group-label">{item.label}</div>
+              {item.children.map((child) => (
+                <Link
+                  key={child.path}
+                  to={child.path}
+                  className="mobile-link mobile-child"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) => `mobile-link${isActive ? ' active' : ''}`}
+              end={item.path === '/'}
+              onClick={() => setMobileOpen(false)}
+            >
+              {item.label}
+            </NavLink>
+          )
+        )}
+        <div className="mobile-group">
+          <div className="mobile-group-label">Admin</div>
+          <Link to="/portal-secure-1122" className="mobile-link mobile-child" onClick={() => setMobileOpen(false)}>
+            Admin Dashboard
+          </Link>
+        </div>
+        <div className="mobile-cta">
+          <Link to="/contact" className="btn btn-primary" onClick={() => setMobileOpen(false)}>
+            Start a Project <ArrowRight size={16} />
+          </Link>
+        </div>
+      </nav>
+    </div>
+    </>
   )
 }

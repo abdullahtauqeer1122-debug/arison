@@ -1,70 +1,57 @@
-// Inline SVG logo matching the AN monogram brand mark
-export default function Logo({ size = 40, showText = true }) {
+// Monogram brand mark matching A-N interlinked logo in the spec
+export default function Logo({ size = 42, showText = true }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-      <svg width={size} height={size} viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden="true">
         <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00CFFD" />
-            <stop offset="50%" stopColor="#4A6CF7" />
-            <stop offset="100%" stopColor="#7B5EFF" />
+          <linearGradient id="logoSpecGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#A855F7" /> {/* Purple */}
+            <stop offset="50%" stopColor="#2563EB" /> {/* Blue */}
+            <stop offset="100%" stopColor="#22D3EE" /> {/* Cyan */}
           </linearGradient>
-          <filter id="logoGlow">
-            <feGaussianBlur stdDeviation="1.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
-        {/* A shape */}
+        {/* Interlinked A and N Monogram paths */}
         <path
-          d="M8 62 L36 6 L64 62"
-          stroke="url(#logoGrad)"
-          strokeWidth="5"
+          d="M15 80 L50 20 L85 80"
+          stroke="url(#logoSpecGrad)"
+          strokeWidth="7"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
-          filter="url(#logoGlow)"
         />
         <path
-          d="M18 44 L54 44"
-          stroke="url(#logoGrad)"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        {/* N overlay - slightly transparent */}
-        <path
-          d="M20 58 L20 22 L52 58 L52 22"
-          stroke="url(#logoGrad)"
-          strokeWidth="3.5"
+          d="M35 80 L35 42 L65 80 L65 32"
+          stroke="url(#logoSpecGrad)"
+          strokeWidth="7"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
-          opacity="0.65"
-          filter="url(#logoGlow)"
+        />
+        {/* Horizontal bar of the A */}
+        <path
+          d="M31 56 L52 56"
+          stroke="url(#logoSpecGrad)"
+          strokeWidth="5"
+          strokeLinecap="round"
         />
       </svg>
       {showText && (
-        <div style={{ lineHeight: 1 }}>
+        <div style={{ lineHeight: 1.15, display: 'flex', flexDirection: 'column' }}>
           <div style={{
-            fontFamily: 'Syne, sans-serif',
+            fontFamily: 'var(--font-display)',
             fontWeight: 800,
-            fontSize: '1rem',
-            letterSpacing: '0.05em',
-            background: 'linear-gradient(135deg, #00CFFD, #7B5EFF)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            fontSize: '1.2rem',
+            letterSpacing: '0.08em',
+            color: 'var(--text-primary)',
           }}>
             ARISON
           </div>
           <div style={{
-            fontFamily: 'Syne, sans-serif',
+            fontFamily: 'var(--font-body)',
             fontWeight: 700,
-            fontSize: '0.65rem',
-            letterSpacing: '0.25em',
-            color: 'rgba(255,255,255,0.5)',
+            fontSize: '0.625rem',
+            letterSpacing: '0.22em',
+            color: 'var(--text-secondary)',
             textTransform: 'uppercase',
             marginTop: '1px',
           }}>

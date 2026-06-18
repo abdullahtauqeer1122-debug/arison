@@ -179,20 +179,28 @@ export default function Services() {
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
       {/* Hero */}
       <section className="page-hero services-hero" aria-label="Services hero">
-        <div className="services-hero-glow" />
         <div className="container page-hero-content">
-          <AnimatedSection>
-            <div className="section-label">Our Services</div>
-            <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '750px' }}>
-              End-to-End Technology Solutions for <span className="text-grad">Enterprise Growth</span>
-            </h1>
-            <p className="body-lg text-muted" style={{ maxWidth: '580px', marginBottom: '2rem' }}>
-              From custom software engineering to AI implementation and digital transformation — we deliver the full spectrum of technology services that forward-thinking organizations need.
-            </p>
-            <Link to="/contact" className="btn btn-primary btn-lg">
-              Discuss Your Project <ArrowRight size={18} />
-            </Link>
-          </AnimatedSection>
+          <div className="services-hero-grid">
+            <AnimatedSection>
+              <div className="section-label">Our Services</div>
+              <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '750px' }}>
+                End-to-End Technology Solutions for <span className="text-grad">Enterprise Growth</span>
+              </h1>
+              <p className="body-lg text-muted" style={{ maxWidth: '580px', marginBottom: '2rem' }}>
+                From custom software engineering to AI implementation and digital transformation — we deliver the full spectrum of technology services that forward-thinking organizations need.
+              </p>
+              <Link to="/contact" className="btn btn-primary btn-lg">
+                Discuss Your Project <ArrowRight size={18} />
+              </Link>
+            </AnimatedSection>
+            <AnimatedSection animation="reveal-right" className="services-hero-img-wrap">
+              <img 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" 
+                alt="Software development team collaborating" 
+                className="services-hero-img"
+              />
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

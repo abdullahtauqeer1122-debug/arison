@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Clock, Tag } from 'lucide-react'
@@ -7,7 +7,7 @@ import './Blog.css'
 
 const categories = ['All', 'Artificial Intelligence', 'Software Engineering', 'Cloud Computing', 'Cybersecurity', 'Digital Transformation', 'Industry Insights', 'Case Studies']
 
-const articles = [
+export const articles = [
   {
     id: 1, category: 'Artificial Intelligence', readTime: '8 min',
     title: 'How Large Language Models Are Reshaping Enterprise Software Development',
@@ -84,10 +84,24 @@ const colors = {
 }
 
 export default function Blog() {
+  const [blogsList, setBlogsList] = useState([])
   const [activeCategory, setActiveCategory] = useState('All')
 
-  const featured = articles.find(a => a.featured)
-  const filtered = (activeCategory === 'All' ? articles.filter(a => !a.featured) : articles.filter(a => a.category === activeCategory && !a.featured))
+  useEffect(() => {
+    const stored = localStorage.getItem('arison_blogs')
+    if (stored) {
+      setBlogsList(JSON.parse(stored))
+    } else {
+      setBlogsList(articles)
+      localStorage.setItem('arison_blogs', JSON.stringify(articles))
+    }
+  }, [])
+
+  const featured = blogsList.find(a => a.featured) || blogsList[0]
+  const filtered = blogsList.filter(a => {
+    if (a.id === (featured ? featured.id : null)) return false;
+    return activeCategory === 'All' || a.category.toLowerCase() === activeCategory.toLowerCase();
+  })
 
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>

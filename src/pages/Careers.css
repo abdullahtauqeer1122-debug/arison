@@ -1,5 +1,7 @@
 .careers-hero { background: var(--bg-surface); }
-.careers-hero-glow { position:absolute; width:600px; height:600px; top:-100px; right:-100px; background:radial-gradient(circle, rgba(74,108,247,0.15), transparent 70%); pointer-events:none; }
+.careers-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; }
+.careers-hero-img-wrap { display: flex; align-items: center; justify-content: center; }
+.careers-hero-img { width: 100%; max-width: 520px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
 .careers-culture { background: var(--bg-base); }
 .culture-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; }
 .culture-values-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -26,4 +28,4 @@
 .apply-form-actions { display: flex; gap: 1rem; justify-content: flex-end; }
 .apply-success { text-align: center; padding: var(--space-2xl); display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 @media (max-width: 1024px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 768px) { .culture-grid { grid-template-columns: 1fr; } .benefits-grid { grid-template-columns: 1fr; } .role-header { flex-direction: column; } .form-row { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .careers-hero-grid { grid-template-columns: 1fr; } .careers-hero-img-wrap { order: -1; } .careers-hero-img { max-width: 100%; } .culture-grid { grid-template-columns: 1fr; } .benefits-grid { grid-template-columns: 1fr; } .role-header { flex-direction: column; } .form-row { grid-template-columns: 1fr; } }

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arison NextStack Technologies | Content Hub</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d5e0f8",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#586377",
+                        "on-surface": "#1b1b1d",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "outline": "#76777d",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-variant": "#e4e2e4",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-background": "#1b1b1d",
+                        "secondary": "#545f73",
+                        "surface-container": "#f0edef",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-tertiary-container": "#98805d",
+                        "inverse-on-surface": "#f3f0f2",
+                        "outline-variant": "#c6c6cd",
+                        "surface-dim": "#dcd9db",
+                        "inverse-surface": "#303032",
+                        "surface-bright": "#fcf8fa",
+                        "primary": "#000000",
+                        "secondary-fixed": "#d8e3fb",
+                        "surface-tint": "#565e74",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-high": "#eae7e9",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f6f3f5",
+                        "tertiary-container": "#271901",
+                        "surface": "#fcf8fa",
+                        "on-secondary-fixed": "#111c2d",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "on-tertiary-fixed": "#271901",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary-fixed": "#131b2e",
+                        "primary-container": "#131b2e",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "tertiary-fixed": "#fcdeb5",
+                        "background": "#fcf8fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "container-max": "1440px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Sora"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fcf8fa;
+            color: #1b1b1d;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .technical-gradient {
+            background: linear-gradient(135deg, #131b2e 0%, #000000 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            border-bottom: 2px solid #000000;
+            padding-bottom: 4px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">TechNexus</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Solutions</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Portfolio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Process</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-label-sm font-label-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none w-64" placeholder="Search insights..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-all scale-95 duration-200 ease-in-out">Contact Us</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-12">
+<!-- Hero Section / Animated Background -->
+<section class="relative h-[400px] flex items-center overflow-hidden mb-12">
+
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="max-w-2xl">
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full font-label-sm text-label-sm mb-4 inline-block uppercase tracking-widest">NextStack Intelligence</span>
+<h1 class="font-display-lg text-display-lg mb-4 text-primary">High-Stakes Technical Insights for the Modern Enterprise.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">The definitive content hub for architectural excellence, cloud-native transformation, and engineering culture at scale.</p>
+</div>
+</div>
+</section>
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Content Area -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Category Filter -->
+<div class="flex gap-4 overflow-x-auto pb-4 border-b border-outline-variant/30 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm">All Articles</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm text-on-surface-variant">Engineering</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm text-on-surface-variant">Architecture</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm text-on-surface-variant">Security</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm text-on-surface-variant">AI &amp; ML</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm text-on-surface-variant">DevOps</button>
+</div>
+<!-- Featured Article (Bento Style) -->
+<article class="glass-card rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:scale-[1.01]">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="h-64 md:h-full relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A futuristic server room with glowing blue fiber optic cables running through sleek black racks, symbolizing high-end enterprise architecture. The lighting is cold and precise, with a cinematic depth of field that highlights the technical complexity of modern cloud infrastructure in a professional, light-mode setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_6x06PFA1HZlBVcUMLa7PtSFj9RpdOJYv67aesq8CfA-TRApxr9NLO66qluQMbHVq2uxVk6OLOoOvUw_nA3T476fx0PcC8Yr4s9GzaXlUUSNHFYwPDCetPje9wMvxMLif96j95u3VuCI44zwIrJMwA7TTcPJCJhf8Ihcw_KcXQ-1wkWjY_wb6VWCjwzjU1j6GlOCgqkoTM0-sqz-05Xj44zOqmbXketkkz8JKVz6SOvTfC41ShJMVxKCgWObRkedOxZvh-fnYkaw')"></div>
+</div>
+<div class="p-8 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Editor's Pick</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-4 group-hover:text-primary transition-colors">Scaling Beyond Kubernetes: The Future of Orchestration.</h2>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">Explore the emerging paradigms of serverless-first architectures and the shift towards decentralized computing nodes in massive scale deployments.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold">JD</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Julian Draxler</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">Oct 24, 2024 • 12 min read</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Video Gallery Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                            TechStack Video Briefings
+                        </h3>
+<a class="text-primary font-label-sm text-label-sm flex items-center gap-1 hover:underline" href="#">View All Briefings <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="aspect-video bg-primary-container relative flex items-center justify-center cursor-pointer">
+<div class="w-full h-full absolute inset-0 opacity-60 bg-cover bg-center" data-alt="A high-definition video thumbnail showing a professional software architect standing in front of a digital whiteboard filled with complex system diagrams. The scene is lit with warm, soft professional studio lighting, emphasizing a modern corporate office environment with a clean, high-contrast aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzRpofXqvJBNf48DIheMpvPFK2esRBrK_Y4Mh3zKMsQl6Bg62vWbj8Ex6CYUj4JdmY47aZ3M_KbnYQcakImIbYoSZ9Mo-x2o-bRFrkOYAA9VlxL0z7D7Azt8EztnS1aZShJBVZXtclkww9s2PElmLnwX4Vq3lPjkYl06vslUyjJsn__RznVw8E99Kd8Ttr7KPXvAlZZKeWEnxdZDaMSeBnhz61BOMQ3UiAhAeRcZwflYpl3KSnDxOM9lp9BfmzQTMRIKvAob4fe88')"></div>
+<div class="relative z-10 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] px-2 py-1 rounded">14:22</div>
+</div>
+<div class="p-4">
+<h4 class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-colors">Cloud Migration: The 2024 CTO Strategy Guide</h4>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="aspect-video bg-primary-container relative flex items-center justify-center cursor-pointer">
+<div class="w-full h-full absolute inset-0 opacity-60 bg-cover bg-center" data-alt="A clean, minimalist 3D rendering of an abstract AI neural network consisting of interconnected glowing nodes and golden data streams. The lighting is sophisticated, using shadows to create depth in a vast, sterile white space, perfectly aligned with the technical luxury brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDaRaXqKFHPvok3rdozfCi9uAa7EtDyFv1ObUHAZpWL8tE0PtNharW3cewV4_sJQUk0uz_BA2Glu0_ICVRfinbNUkm7CeDnRGbgIerjY5-2xfPQSdeqgQJI6cd8ZZnhUX-Z1gJUoPZYyBhHe2GsfFjK2lalEAzaoJO53u3XclGGDKbM5_Q6fbQ17AsEz_-EipLLBzhuylbqwj6XYlDk16PaPQsRHzamnciD5XcRzQCKG6BemRbm2ExvHEvOOUEnClZrjTnBemka64')"></div>
+<div class="relative z-10 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] px-2 py-1 rounded">08:45</div>
+</div>
+<div class="p-4">
+<h4 class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-colors">Ethical AI Implementation in Enterprise SaaS</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Regular Feed -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Article 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-48 rounded-xl overflow-hidden mb-4 glass-card">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A minimalist overhead shot of a sleek modern workspace featuring a high-end laptop, a cup of espresso, and a notebook on a white marble desk. The composition is clean and airy, using soft natural light to create a sense of professional calm and intellectual focus." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC70VAXgYwvSuR0S9kK3mrq_0D3gWvC0D-MsFDhUfAMtr88aqG3DVui5lmnoxQkdOiHea1dut3kIqhK9x7UARI-CzjB8Rvqs8_40dAX7t3TVI7Pd5r6bkfOSqlG3vC2pEklWNUymDPPfgNh9KaB7_V2lrGndt9pTWAEtK2jl0SooUa_MvlbPyVeRGw5LYWsQapBnFH5p8GUjBlwdnaJO4UHaaK5mA0m9kqT9Y_pQH8Mwy4eHkgwuGQvSiiLJzG2drhDBuyVGbe7DOU')"></div>
+</div>
+<div class="flex gap-2 mb-3">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">Process</span>
+<span class="text-[10px] text-outline">•</span>
+<span class="text-[10px] text-outline uppercase tracking-widest">5 min read</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 leading-tight group-hover:text-primary transition-colors">The Engineering Culture of High-Output Teams.</h3>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">How radical transparency and async-first principles drive velocity in distributed engineering organizations.</p>
+</article>
+<!-- Article 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="h-48 rounded-xl overflow-hidden mb-4 glass-card">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A complex abstract data visualization with intricate nodes and lines, appearing like a galaxy of information in a deep blue and black void. The colors are high-contrast, with vibrant cyan highlights representing data surges, presented in a crisp, technical architectural style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCJ6xjAWupPSqvvdH5Odu3IObTmnzW1w1vT1marama5y42UzWV-CXdKrEkP-oA6ZIZFXyNfsdEHpCfQEzEzifG7661HkTDxFyrxkRw7wSJ7c_ePaZw8wwpDgFepK9Y8IbvuF-p5a1aC-fbXInSz4MjDPq-9bAGH0kTTWRkV298Vrn6q_vSV-9pyye3RmndaYWsq1X9rOZ0GGeibJGnibQpENTc01H0OYkcjisQDCHXKIfPex62bABT0Ajn0XVKJQYSCZ73drZ7rZs')"></div>
+</div>
+<div class="flex gap-2 mb-3">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">Insights</span>
+<span class="text-[10px] text-outline">•</span>
+<span class="text-[10px] text-outline uppercase tracking-widest">8 min read</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 leading-tight group-hover:text-primary transition-colors">Data Mesh or Data Lakehouse: Choosing your path.</h3>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">A technical deep dive into modern data architectures for organizations handling petabyte-scale analytics.</p>
+</article>
+</div>
+<!-- Load More -->
+<div class="flex justify-center pt-8">
+<button class="px-8 py-3 border border-primary text-primary rounded-lg font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-all">
+                        Discover More Articles
+                    </button>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-12">
+<!-- Trending Topics -->
+<div class="glass-card p-6 rounded-xl">
+<h4 class="font-headline-md text-headline-md text-primary mb-6 text-xl">Trending Pulse</h4>
+<div class="space-y-6">
+<a class="flex gap-4 group" href="#">
+<span class="text-display-lg text-primary/10 font-bold leading-none">01</span>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-colors">Rust vs Go for Edge Computing</h5>
+<p class="text-[10px] text-outline uppercase mt-1">Architecture • 2.4k reads</p>
+</div>
+</a>
+<a class="flex gap-4 group" href="#">
+<span class="text-display-lg text-primary/10 font-bold leading-none">02</span>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-colors">Zero-Trust Security Frameworks</h5>
+<p class="text-[10px] text-outline uppercase mt-1">Security • 1.8k reads</p>
+</div>
+</a>
+<a class="flex gap-4 group" href="#">
+<span class="text-display-lg text-primary/10 font-bold leading-none">03</span>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-colors">Post-Quantum Cryptography</h5>
+<p class="text-[10px] text-outline uppercase mt-1">Future Tech • 1.2k reads</p>
+</div>
+</a>
+</div>
+</div>
+<!-- Newsletter Card -->
+<div class="technical-gradient p-8 rounded-xl text-on-primary shadow-xl">
+<span class="material-symbols-outlined text-3xl mb-4">mail</span>
+<h4 class="font-headline-md text-headline-md mb-2">The Stack Weekly</h4>
+<p class="text-on-primary/70 text-body-md mb-6">Curated technical analysis delivered to your inbox every Tuesday morning.</p>
+<form class="space-y-4">
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/40 focus:ring-1 focus:ring-white/50 outline-none" placeholder="Your work email" type="email"/>
+<button class="w-full bg-white text-primary py-3 rounded-lg font-label-sm text-label-sm hover:bg-secondary-fixed transition-colors">Subscribe Now</button>
+</form>
+<p class="text-[10px] text-on-primary/40 mt-4 text-center">Strictly no spam. Unsubscribe anytime.</p>
+</div>
+<!-- Social Links -->
+<div class="glass-card p-6 rounded-xl">
+<h4 class="font-label-sm text-label-sm text-outline mb-4 uppercase tracking-widest">Connect with Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+<a class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<!-- Resource Promo -->
+<div class="relative rounded-xl overflow-hidden h-64 flex flex-col justify-end p-6 group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A high-quality, professional whitepaper cover featuring abstract architectural lines and sophisticated blue gradients. The text '2024 State of DevOps' is visible in a premium, bold typeface, conveying a sense of authoritative industry research in a modern corporate style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2BaLOIAqNO0GLYuosRSjePyeMM08oJJA3Hs2Yf4I0hDZEZwmLaS9KIb2lsnV8Y2wwuFHQogQzgIUeGQw6szuw8PooKzQIi7BHU7WTXH-3AUSdUd4UmCfpSEW3wdGXze1ld0hp8zsjDBkNKQAuavHq8iy9PG-x80paLybx2C7F8BG_nGb-xx1LoFzjAGOeAJWVnWAvZv6my81_giw6-OEaoLh4YrseZncCLeKmycS2b-vKVaaq7VhUv3N0uioeRghdsxUll_ErHxM')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="relative z-10">
+<p class="text-[10px] text-white/70 uppercase tracking-widest mb-1">New Report</p>
+<h4 class="text-white font-headline-md text-lg leading-tight mb-4">2024 State of DevOps: Modernizing Legacy Chains</h4>
+<button class="text-white flex items-center gap-2 font-label-sm text-label-sm">Download <span class="material-symbols-outlined text-sm">download</span></button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-highest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<a class="font-headline-md text-headline-md text-primary block mb-4" href="#">TechNexus</a>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">Advancing the horizon of enterprise technology through rigorous engineering and strategic insight.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-sm text-label-sm text-primary uppercase">Core Solutions</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Cloud Architecture</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">AI Integration</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Legacy Modernization</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-sm text-label-sm text-primary uppercase">Quick Links</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Careers</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Press Kit</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Security</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-sm text-label-sm text-primary uppercase">Legal</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-6 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant font-body-md text-body-md text-sm">© 2024 TechNexus Solutions. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">podcasts</span></a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle scroll effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+
+            // Smooth reveal for articles
+            const articles = document.querySelectorAll('article');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            articles.forEach(article => {
+                article.style.opacity = '0';
+                article.style.transform = 'translateY(20px)';
+                article.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(article);
+            });
+        });
+    </script>
+</body></html>

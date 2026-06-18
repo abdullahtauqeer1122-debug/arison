@@ -75,18 +75,25 @@ export default function Technology() {
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
       {/* Hero */}
       <section className="page-hero tech-hero" aria-label="Technology hero">
-        <div className="tech-hero-glow-1" />
-        <div className="tech-hero-glow-2" />
         <div className="container page-hero-content">
-          <AnimatedSection>
-            <div className="section-label">Our Tech Ecosystem</div>
-            <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
-              Enterprise-Grade <span className="text-grad">Technology Stack</span>
-            </h1>
-            <p className="body-lg text-muted" style={{ maxWidth: '560px' }}>
-              We work with the world's most powerful and proven technologies — selecting the right tool for each specific challenge rather than forcing a one-size-fits-all approach.
-            </p>
-          </AnimatedSection>
+          <div className="tech-hero-grid">
+            <AnimatedSection>
+              <div className="section-label">Our Tech Ecosystem</div>
+              <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
+                Enterprise-Grade <span className="text-grad">Technology Stack</span>
+              </h1>
+              <p className="body-lg text-muted" style={{ maxWidth: '560px' }}>
+                We work with the world's most powerful and proven technologies — selecting the right tool for each specific challenge rather than forcing a one-size-fits-all approach.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection animation="reveal-right" className="tech-hero-img-wrap">
+              <img 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" 
+                alt="Modern technology infrastructure" 
+                className="tech-hero-img"
+              />
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

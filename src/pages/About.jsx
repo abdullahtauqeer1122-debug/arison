@@ -14,21 +14,17 @@ const values = [
 ]
 
 const milestones = [
-  { year: '2017', title: 'Founded', desc: 'Arison NextStack Technologies established with a team of 5 engineers, driven by a single mission: build technology that matters.' },
-  { year: '2018', title: 'First Enterprise Client', desc: 'Delivered our first large-scale enterprise ERP system for a manufacturing firm, establishing our reputation for quality.' },
-  { year: '2019', title: 'AI Division Launched', desc: 'Expanded into artificial intelligence and machine learning, building predictive analytics tools for healthcare and finance.' },
-  { year: '2020', title: 'Remote-First Adoption', desc: 'Pioneered distributed delivery models, growing our team globally while maintaining seamless collaboration and quality.' },
-  { year: '2021', title: '50+ Projects Milestone', desc: 'Crossed 50 successfully delivered projects across 8 industries — healthcare, finance, retail, education, and more.' },
-  { year: '2022', title: 'Cloud Competency', desc: 'Achieved advanced cloud architecture expertise, delivering multi-cloud solutions for enterprise clients across three continents.' },
-  { year: '2023', title: '100+ Clients', desc: 'Surpassed 100 enterprise clients globally, with a team of 40+ specialists across engineering, design, and strategy.' },
-  { year: '2024', title: 'AI-First Strategy', desc: 'Launched our AI-first product strategy, integrating intelligent automation into every solution we deliver.' },
-  { year: '2025+', title: 'The Next Chapter', desc: 'Expanding into new markets, launching proprietary SaaS products, and continuing to define the future of enterprise technology.' },
+  { year: '2002', title: 'Founded', desc: 'Arison NextStack Technologies was established in Pakistan with a core group of passionate developers, building custom business systems.' },
+  { year: '2010', title: 'Expansion & Web Era', desc: 'Expanded our services to Full Stack Web Development and cloud integration, serving growing startups and institutions across Pakistan.' },
+  { year: '2015', title: 'SaaS Division Launched', desc: 'Created a dedicated SaaS Application Development team to engineer high-performance web applications and enterprise products.' },
+  { year: '2020', title: 'Enterprise Solutions', desc: 'Transitioned to enterprise software systems, database engineering, and comprehensive digital transformation services for global organizations.' },
+  { year: '2025+', title: 'International Footprint', desc: 'Continuing our expansion with state-of-the-art UI/UX, AI, and APIs, serving clients globally from our headquarters in Pakistan.' },
 ]
 
 const stats = [
   { value: '150+', label: 'Projects Delivered' },
   { value: '80+', label: 'Enterprise Clients' },
-  { value: '7+', label: 'Years of Excellence' },
+  { value: '24+', label: 'Years of Excellence' },
   { value: '15+', label: 'Industries Served' },
 ]
 
@@ -76,16 +72,21 @@ export default function About() {
           <div className="story-grid">
             <AnimatedSection animation="reveal-left">
               <div className="section-label">Our Story</div>
-              <h2 className="section-title" style={{ textAlign: 'left' }}>
+              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
                 Built from Passion,<br /><span className="text-grad">Proven by Results</span>
               </h2>
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80" 
+                alt="Arison NextStack Technologies team" 
+                style={{ width: '100%', borderRadius: 'var(--radius-md)', display: 'block', marginTop: '1.5rem', boxShadow: 'var(--shadow-sm)' }}
+              />
             </AnimatedSection>
             <AnimatedSection animation="reveal-right">
               <p className="body-lg text-muted" style={{ marginBottom: '1.5rem' }}>
-                Arison NextStack Technologies was founded in 2017 by a group of software engineers who believed that great technology shouldn't be the exclusive privilege of Fortune 500 companies. We set out to bring enterprise-grade software engineering to ambitious businesses of all sizes.
+                Arison NextStack Technologies was founded in 2002 by a group of software engineers who believed that great technology shouldn't be the exclusive privilege of Fortune 500 companies. We set out to bring enterprise-grade software engineering to ambitious businesses of all sizes.
               </p>
               <p className="body-md text-muted" style={{ marginBottom: '1.5rem' }}>
-                Over seven years, we've grown from a five-person startup to a full-spectrum technology consultancy serving clients across healthcare, finance, manufacturing, education, retail, and more. What hasn't changed is our relentless pursuit of engineering excellence.
+                Over 24 years, we've grown from a five-person startup to a full-spectrum technology consultancy serving clients across healthcare, finance, manufacturing, education, retail, and more. What hasn't changed is our relentless pursuit of engineering excellence.
               </p>
               <p className="body-md text-muted">
                 Today, Arison NextStack Technologies stands as a trusted technology partner for organizations that demand the best — businesses that understand that the right software isn't a cost, it's a competitive advantage.

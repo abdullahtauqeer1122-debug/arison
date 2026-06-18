@@ -84,13 +84,13 @@ export default function Footer() {
               Building technology that drives business forward. Enterprise software solutions for organizations worldwide.
             </p>
             <div className="footer-contact-list">
-              <a href="tel:+923297333609" className="footer-contact-item">
+              <a href="https://wa.me/923004003075" target="_blank" rel="noreferrer" className="footer-contact-item">
                 <Phone size={14} />
-                +92 329 7333609
+                +92 300 4003075 (WhatsApp)
               </a>
-              <a href="tel:+923004003075" className="footer-contact-item">
+              <a href="https://wa.me/923027724609" target="_blank" rel="noreferrer" className="footer-contact-item">
                 <Phone size={14} />
-                +92 300 4003075
+                +92 302 7724609 (WhatsApp)
               </a>
               <a href="mailto:arisonnextstacktechnologies@gmail.com" className="footer-contact-item">
                 <Mail size={14} />
@@ -147,9 +147,9 @@ export default function Footer() {
             © {year} Arison NextStack Technologies. All rights reserved.
           </p>
           <div className="footer-bottom-links">
+            <Link to="/info@arison.pk" className="footer-bottom-link">Admin Portal</Link>
             <a href="#" className="footer-bottom-link">Privacy Policy</a>
             <a href="#" className="footer-bottom-link">Terms of Service</a>
-            <a href="#" className="footer-bottom-link">Cookie Policy</a>
           </div>
         </div>
       </div>

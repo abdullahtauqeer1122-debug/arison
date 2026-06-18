@@ -6,58 +6,18 @@ import {
   Cloud, Brain, BarChart3, Users, Award, CheckCircle2, Star
 } from 'lucide-react'
 import AnimatedSection from '../components/common/AnimatedSection'
+import ThreeBackground from '../components/common/ThreeBackground'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import { useCounterAnimation } from '../hooks/useCounterAnimation'
 import './Home.css'
 
-/* ─── Particle Canvas ─── */
-function ParticleCanvas() {
-  const canvasRef = useRef(null)
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    let W = canvas.width = canvas.offsetWidth
-    let H = canvas.height = canvas.offsetHeight
-    let particles = Array.from({ length: 80 }, () => ({
-      x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 1.5 + 0.3,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      a: Math.random() * 0.5 + 0.1,
-    }))
-    let raf
-    const draw = () => {
-      ctx.clearRect(0, 0, W, H)
-      particles.forEach(p => {
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 207, 253, ${p.a})`
-        ctx.fill()
-        p.x += p.vx; p.y += p.vy
-        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0
-        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0
-      })
-      raf = requestAnimationFrame(draw)
-    }
-    draw()
-    const onResize = () => {
-      W = canvas.width = canvas.offsetWidth
-      H = canvas.height = canvas.offsetHeight
-    }
-    window.addEventListener('resize', onResize)
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize) }
-  }, [])
-  return <canvas ref={canvasRef} className="particles-canvas" />
-}
-
 /* ─── Animated Stat ─── */
 function StatItem({ value, suffix = '', label, delay = 0 }) {
-  const [ref, visible] = useIntersectionObserver({ threshold: 0.3 })
-  const count = useCounterAnimation(value, 2200, visible)
+  const [ref, visible] = useIntersectionObserver({ threshold: 0.1 })
+  const count = useCounterAnimation(value, 1800, visible)
   return (
-    <div ref={ref} className="stat-item reveal" style={{ transitionDelay: `${delay}ms` }}>
-      <div className="stat-number">{count}{suffix}</div>
+    <div ref={ref} className="stat-item" style={{ transitionDelay: `${delay}ms` }}>
+      <div className="stat-number">{visible ? count : 0}{suffix}</div>
       <div className="stat-label">{label}</div>
     </div>
   )
@@ -106,7 +66,7 @@ const clients = [
 ]
 
 const whyUs = [
-  { icon: Award, title: '7+ Years of Excellence', desc: 'Over seven years delivering enterprise-grade technology solutions across global markets.' },
+  { icon: Award, title: '24+ Years of Excellence', desc: 'Delivering enterprise-grade technology solutions globally since launching in Pakistan in 2002.' },
   { icon: Users, title: 'Dedicated Expert Teams', desc: 'Cross-functional teams of engineers, designers, and strategists fully committed to your success.' },
   { icon: Zap, title: 'Agile Delivery', desc: 'Rapid, iterative development cycles ensuring on-time delivery without compromising quality.' },
   { icon: BarChart3, title: 'Proven ROI', desc: 'Our solutions consistently deliver measurable business outcomes and strong returns on investment.' },
@@ -144,62 +104,32 @@ export default function Home() {
     >
       {/* ── HERO ── */}
       <section className="hero" ref={heroRef} aria-label="Hero">
-        <ParticleCanvas />
-        <div
-          className="hero-glow-1 glow-orb glow-orb-cyan"
-          style={{ transform: `translate(${mousePos.x * 0.5}px, ${mousePos.y * 0.5}px)` }}
-        />
-        <div
-          className="hero-glow-2 glow-orb glow-orb-purple"
-          style={{ transform: `translate(${-mousePos.x * 0.3}px, ${-mousePos.y * 0.3}px)` }}
-        />
-
         <div className="container hero-content">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="hero-badge"
-          >
+          <div className="hero-badge">
             <span className="badge badge-cyan">
               <Zap size={10} />
               Enterprise Technology Solutions
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            className="hero-headline display-xl"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-          >
+          <h1 className="hero-headline display-xl">
             Building Technology<br />
             That Drives{' '}
             <span className="text-grad">Business Forward</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="hero-sub body-lg text-muted"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-          >
-            Arison NextStack Technologies engineers enterprise-grade software solutions that help organizations innovate, scale, automate operations, and accelerate digital transformation — delivering measurable results at every stage.
-          </motion.p>
+          <p className="hero-sub body-lg text-muted">
+            Arison NextStack Technologies is a Pakistan-based software engineering powerhouse. Since our launch in 2002, we have engineered enterprise-grade software and SaaS solutions that help organizations innovate, scale, and automate operations globally.
+          </p>
 
-          <motion.div
-            className="hero-actions"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.75 }}
-          >
+          <div className="hero-actions">
             <Link to="/contact" className="btn btn-primary btn-lg">
               Start Your Project <ArrowRight size={18} />
             </Link>
             <Link to="/services" className="btn btn-secondary btn-lg">
               Explore Services
             </Link>
-          </motion.div>
+          </div>
 
           <motion.div
             className="hero-trust"
@@ -237,7 +167,7 @@ export default function Home() {
           <div className="stats-grid stagger">
             <StatItem value={150} suffix="+" label="Projects Delivered" delay={0} />
             <StatItem value={80} suffix="+" label="Enterprise Clients" delay={80} />
-            <StatItem value={7} suffix="+" label="Years of Excellence" delay={160} />
+            <StatItem value={24} suffix="+" label="Years of Excellence" delay={160} />
             <StatItem value={50} suffix="+" label="Expert Professionals" delay={240} />
           </div>
         </div>
@@ -301,9 +231,14 @@ export default function Home() {
                 <p className="body-lg text-muted" style={{ marginBottom: '2rem', maxWidth: '420px' }}>
                   We don't just write code — we engineer business outcomes. Every engagement begins with understanding your goals and ends with measurable results.
                 </p>
-                <Link to="/about" className="btn btn-primary">
+                <Link to="/about" className="btn btn-primary" style={{ marginBottom: '2rem' }}>
                   Learn Our Story <ArrowRight size={16} />
                 </Link>
+                <img 
+                  src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=600&q=80" 
+                  alt="Modern software team meeting" 
+                  style={{ width: '100%', borderRadius: 'var(--radius-md)', display: 'block', boxShadow: 'var(--shadow-sm)' }}
+                />
               </AnimatedSection>
             </div>
             <div className="why-right stagger">
@@ -381,6 +316,94 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── PRICING SECTION ── */}
+      <section className="pricing-section section" aria-label="Pricing Packages">
+        <div className="container">
+          <AnimatedSection className="section-header">
+            <div className="section-label">Flexible Pricing</div>
+            <h2 className="section-title">Transparent & <span className="text-grad">Affordable Rates</span></h2>
+            <p className="section-subtitle">Premium web engineering solutions tailored for startups and businesses.</p>
+          </AnimatedSection>
+
+          <div className="pricing-grid stagger">
+            {/* E-Commerce Card */}
+            <AnimatedSection className="pricing-card card" delay={0}>
+              <div className="pricing-card-header">
+                <h3 className="pricing-title">E-Commerce Site</h3>
+                <p className="body-sm text-muted">Complete professional online storefront solutions.</p>
+                <div className="pricing-price">
+                  10,000 <span>PKR</span>
+                </div>
+              </div>
+              <ul className="pricing-features">
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> Full Inventory & Catalog System
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> Payment Gateway Integration
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> Order Tracking & Dashboard
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> Fully Mobile Responsive Layout
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> Basic SEO Optimization
+                </li>
+              </ul>
+              <a 
+                href="https://wa.me/923004003075?text=Hi! I am interested in building an E-Commerce Site starting at 10k PKR." 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn btn-primary w-full"
+                style={{ textAlign: 'center' }}
+              >
+                Choose E-Commerce
+              </a>
+            </AnimatedSection>
+
+            {/* Full Stack Web App Card */}
+            <AnimatedSection className="pricing-card card featured" delay={100}>
+              <div className="pricing-badge-popular">Popular</div>
+              <div className="pricing-card-header">
+                <h3 className="pricing-title">Full Stack Web App</h3>
+                <p className="body-sm text-muted">Bespoke customized web software & complex workflows.</p>
+                <div className="pricing-price">
+                  20,000 - 25,000 <span>PKR</span>
+                </div>
+              </div>
+              <ul className="pricing-features">
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> React, Node.js, SQL/NoSQL Database
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> Complex Admin Dashboard Control
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> Custom API & Authentication (OAuth/JWT)
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> High-Performance Animations & Transitions
+                </li>
+                <li className="pricing-feature-item">
+                  <CheckCircle2 size={16} className="pricing-feature-icon" /> 1 Month Priority Support
+                </li>
+              </ul>
+              <a 
+                href="https://wa.me/923004003075?text=Hi! I am interested in building a Full Stack Web App starting at 20-25k PKR." 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn btn-primary w-full"
+                style={{ textAlign: 'center' }}
+              >
+                Choose Full Stack
+              </a>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA BANNER ── */}
       <section className="cta-banner section-sm" aria-label="Call to action">
         <div className="container">
@@ -400,8 +423,8 @@ export default function Home() {
                 <Link to="/contact" className="btn btn-primary btn-lg">
                   Start Your Project <ArrowRight size={18} />
                 </Link>
-                <a href="tel:+923297333609" className="btn btn-secondary btn-lg">
-                  Call Us Now
+                <a href="https://wa.me/923004003075" target="_blank" rel="noreferrer" className="btn btn-secondary btn-lg">
+                  Chat on WhatsApp
                 </a>
               </div>
             </div>

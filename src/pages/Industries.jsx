@@ -27,21 +27,29 @@ export default function Industries() {
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
       {/* Hero */}
       <section className="page-hero industries-hero" aria-label="Industries hero">
-        <div className="industries-glow" />
         <div className="container page-hero-content">
-          <AnimatedSection>
-            <div className="section-label">Industries We Serve</div>
-            <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
-              Sector-Specific Technology for <span className="text-grad">Every Industry</span>
-            </h1>
-            <p className="body-lg text-muted" style={{ maxWidth: '560px', marginBottom: '2rem' }}>
-              We don't just build generic software. We bring deep domain knowledge to every engagement — understanding your industry's specific challenges, compliance requirements, and competitive dynamics.
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link to="/contact" className="btn btn-primary">Discuss Your Industry <ArrowRight size={16} /></Link>
-              <Link to="/projects" className="btn btn-secondary">View Industry Projects</Link>
-            </div>
-          </AnimatedSection>
+          <div className="industries-hero-grid">
+            <AnimatedSection>
+              <div className="section-label">Industries We Serve</div>
+              <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
+                Sector-Specific Technology for <span className="text-grad">Every Industry</span>
+              </h1>
+              <p className="body-lg text-muted" style={{ maxWidth: '560px', marginBottom: '2rem' }}>
+                We don't just build generic software. We bring deep domain knowledge to every engagement — understanding your industry's specific challenges, compliance requirements, and competitive dynamics.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link to="/contact" className="btn btn-primary">Discuss Your Industry <ArrowRight size={16} /></Link>
+                <Link to="/projects" className="btn btn-secondary">View Industry Projects</Link>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="reveal-right" className="industries-hero-img-wrap">
+              <img 
+                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" 
+                alt="Modern enterprise business technology" 
+                className="industries-hero-img"
+              />
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

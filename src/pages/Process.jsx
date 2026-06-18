@@ -150,17 +150,25 @@ export default function Process() {
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
       {/* Hero */}
       <section className="page-hero process-hero" aria-label="Process hero">
-        <div className="process-hero-glow" />
         <div className="container page-hero-content">
-          <AnimatedSection>
-            <div className="section-label">How We Work</div>
-            <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
-              A Proven Process for <span className="text-grad">Flawless Delivery</span>
-            </h1>
-            <p className="body-lg text-muted" style={{ maxWidth: '580px' }}>
-              Ten carefully engineered phases that take your project from idea to high-performing production system — with full transparency and collaboration at every step.
-            </p>
-          </AnimatedSection>
+          <div className="process-hero-grid">
+            <AnimatedSection>
+              <div className="section-label">How We Work</div>
+              <h1 className="display-lg" style={{ marginBottom: '1.5rem', maxWidth: '700px' }}>
+                A Proven Process for <span className="text-grad">Flawless Delivery</span>
+              </h1>
+              <p className="body-lg text-muted" style={{ maxWidth: '580px' }}>
+                Ten carefully engineered phases that take your project from idea to high-performing production system — with full transparency and collaboration at every step.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection animation="reveal-right" className="process-hero-img-wrap">
+              <img 
+                src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" 
+                alt="Team planning software project" 
+                className="process-hero-img"
+              />
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

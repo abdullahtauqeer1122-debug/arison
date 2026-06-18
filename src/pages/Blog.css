@@ -28,3 +28,4 @@
 .newsletter-signup-input { flex: 1; }
 @media (max-width: 1024px) { .blog-articles-grid { grid-template-columns: repeat(2, 1fr); } .featured-article-inner { grid-template-columns: 1fr; } .featured-visual { display: none; } }
 @media (max-width: 768px) { .blog-articles-grid { grid-template-columns: 1fr; } .newsletter-signup-form { flex-direction: column; } }
+@media (max-width: 480px) { .featured-article { padding: var(--space-xl); } .article-body { padding: var(--space-md); } }

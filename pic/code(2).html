@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arison NextStack Technologies | Executive Precision</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Sora:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#d5e0f8",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#586377",
+                    "on-surface": "#1b1b1d",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "outline": "#76777d",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-variant": "#e4e2e4",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-background": "#1b1b1d",
+                    "secondary": "#545f73",
+                    "surface-container": "#f0edef",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-tertiary-container": "#98805d",
+                    "inverse-on-surface": "#f3f0f2",
+                    "outline-variant": "#c6c6cd",
+                    "surface-dim": "#dcd9db",
+                    "inverse-surface": "#303032",
+                    "surface-bright": "#fcf8fa",
+                    "primary": "#000000",
+                    "secondary-fixed": "#d8e3fb",
+                    "surface-tint": "#565e74",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dae2fd",
+                    "on-primary-container": "#7c839b",
+                    "surface-container-high": "#eae7e9",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f6f3f5",
+                    "tertiary-container": "#271901",
+                    "surface": "#fcf8fa",
+                    "on-secondary-fixed": "#111c2d",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "on-tertiary-fixed": "#271901",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#bec6e0",
+                    "on-primary-fixed": "#131b2e",
+                    "primary-container": "#131b2e",
+                    "on-error": "#ffffff",
+                    "tertiary": "#000000",
+                    "tertiary-fixed": "#fcdeb5",
+                    "background": "#fcf8fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "container-max": "1440px",
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Sora"],
+                    "label-sm": ["Inter"],
+                    "display-lg-mobile": ["Sora"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Sora"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .sticky-cta {
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.05);
+        }
+        .active-filter {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container-highest/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">TechNexus</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Portfolio</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Process</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Insights</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-all">Contact Us</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-24">
+<div class="max-w-3xl">
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-secondary-container/50 px-3 py-1 rounded-full mb-6 inline-block">ENGINEERING EXCELLENCE</span>
+<h1 class="font-display-lg text-display-lg mb-6">Technical Luxury for Global Enterprises.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                    Arison NextStack Technologies merges high-stakes SaaS performance with sophisticated, editorial-grade design. We build the future of enterprise technology.
+                </p>
+</div>
+</section>
+<!-- Service Cards Bento Grid -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-32">
+<h2 class="font-headline-md text-headline-md mb-12">Core Expertise</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Service 1 -->
+<div class="glass-card p-8 rounded-xl group hover:-translate-y-2 transition-all duration-300">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-8 shadow-inner">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">layers</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">SaaS Ecosystems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">High-performance architecture built for 99.9% uptime and hyper-scalability.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Multi-tenant DB</li>
+<li class="flex items-center gap-2 font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Real-time Analytics</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">View Specs <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span></a>
+</div>
+<!-- Service 2 -->
+<div class="glass-card p-8 rounded-xl group hover:-translate-y-2 transition-all duration-300">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-8 shadow-inner">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">Enterprise Web</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Complex web platforms that handle millions of requests without breaking a sweat.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Zero-Trust Security</li>
+<li class="flex items-center gap-2 font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Headless Architecture</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">View Specs <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span></a>
+</div>
+<!-- Service 3 -->
+<div class="glass-card p-8 rounded-xl group hover:-translate-y-2 transition-all duration-300">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-8 shadow-inner">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">smartphone</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">Native Mobile</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Bespoke iOS and Android applications with pixel-perfect attention to detail.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Swift & Kotlin</li>
+<li class="flex items-center gap-2 font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Biometric Integration</li>
+</ul>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">View Specs <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span></a>
+</div>
+</div>
+</section>
+<!-- Dynamic Portfolio Grid -->
+<section class="bg-surface-container-low py-24">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+<div>
+<h2 class="font-headline-md text-headline-md mb-2">Our Portfolio</h2>
+<p class="text-on-surface-variant font-body-md">Precision engineering across every vertical.</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="portfolio-filter active-filter px-6 py-2 rounded-full font-label-sm text-label-sm transition-all border border-outline-variant" onclick="filterPortfolio('all')">All</button>
+<button class="portfolio-filter px-6 py-2 rounded-full font-label-sm text-label-sm transition-all border border-outline-variant hover:bg-surface-container-highest" onclick="filterPortfolio('Web')">Web</button>
+<button class="portfolio-filter px-6 py-2 rounded-full font-label-sm text-label-sm transition-all border border-outline-variant hover:bg-surface-container-highest" onclick="filterPortfolio('App')">App</button>
+<button class="portfolio-filter px-6 py-2 rounded-full font-label-sm text-label-sm transition-all border border-outline-variant hover:bg-surface-container-highest" onclick="filterPortfolio('SaaS')">SaaS</button>
+<button class="portfolio-filter px-6 py-2 rounded-full font-label-sm text-label-sm transition-all border border-outline-variant hover:bg-surface-container-highest" onclick="filterPortfolio('Enterprise')">Enterprise</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="portfolio-grid">
+<!-- Project 1 -->
+<div class="portfolio-item group cursor-pointer" data-category="SaaS" onclick="openModal('Nexus Cloud')">
+<div class="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A clean, high-contrast dashboard interface for a cloud management platform. The UI features a dark sidebar, vibrant light blue data visualizations, and minimalist white cards. The environment is airy and professional with heavy whitespace and sharp typography, embodying technical luxury." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAug-YtiRWoF3m_RuPUIaWU_9Fih2OQgTWt1fkzCC_shCPupnwl64hhjRRcfkG8m3zUzL6mfQJ9Xe5EKifBusymKfeQfJ6_UT1RlCIswHpZSExT6M_gJWJ5X5nEkhybzcZx1kRMhHBM5fdaFyIGoUQ1dopaLr0Ta5s9O_XmcB-ST6P_nSSpDy7XsZgYurOwXpx8euRtyEL8iPlYvh8j2H2WxCYyIqDFDbDBZpsUwjlU5p-NdeKLEJcp66lzteepO14wvItH7iNPFd8')"></div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+<span class="bg-white text-primary px-6 py-2 rounded-full font-label-sm text-label-sm">View Project</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-1">Nexus Cloud</h4>
+<p class="text-on-surface-variant font-label-sm text-label-sm">SaaS • Cloud Infrastructure</p>
+</div>
+<!-- Project 2 -->
+<div class="portfolio-item group cursor-pointer" data-category="Web" onclick="openModal('Elite Real Estate')">
+<div class="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="An ultra-luxury real estate website homepage with massive, high-definition architectural imagery. The UI elements are floating glass containers with subtle drop shadows and razor-sharp typography. The lighting in the scene is soft evening golden hour, reflecting a sophisticated and high-end digital experience." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKhTKvUyKOcmUsUi5ZNIjur-ttkeLNRUZa2_zl5X64qQ2RVz2TWKvNtSyCK1Cq3UpjERJ7W0L_lKPPozh7_0QheVqW2sIUa-UGSMyztg-YU-gXRSh0LiDDlXeaXw0WVDJWyw1IRUsxSjwF_1elGDGL5qp7rXiqqX-JmCibikRcAavZ_rZBU8JJmaipCZSNBv2g16H_me3u6p19CkHykWnL0HJliIps5QGJCOdb46mUAY8kExXhwGHpiXTnlTTEPPorLy4_NBLdoak')"></div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+<span class="bg-white text-primary px-6 py-2 rounded-full font-label-sm text-label-sm">View Project</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-1">Elite Real Estate</h4>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Web • Real Estate Platform</p>
+</div>
+<!-- Project 3 -->
+<div class="portfolio-item group cursor-pointer" data-category="Enterprise" onclick="openModal('Vantage Logistics')">
+<div class="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A complex logistics management software screen showing real-time global map tracking and fleet data tables. The design uses a technical luxury aesthetic with deep slate backgrounds, precise cyan accent lines, and perfectly aligned columns of data. The feeling is one of immense power and absolute control." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCIEPGjsHBcyCVrJe1FqikXeGwb2MFYs5VAzS_3iHXIMItEysTm7DNP0036Y6b2js8S3wYPPn2cyn9-L8Pm8Q_f--ryuuMvBfpai_YIgBesSRGG5dSWRqrLcduXF3bfc_CFnZC3bopaWBeyqe9e4x6EI6isLkESL3B56HwDvSw5JoZ2C-uxomg1m7kNlT9DyUYNAlnEvNFsxhz-8yCkMtCH9tgF95m7QneUWYM-qoRZm5j8oY9n_qkZt6Orfbvjp4YVqI4tJexU1dY')"></div>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+<span class="bg-white text-primary px-6 py-2 rounded-full font-label-sm text-label-sm">View Project</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-1">Vantage Logistics</h4>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Enterprise • Global Supply Chain</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto py-32">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-display-lg mb-4">Investment Tiers</h2>
+<p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto">Transparent pricing for premium technology delivery. No hidden layers, just performance.</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse glass-card rounded-xl overflow-hidden">
+<thead>
+<tr class="bg-primary text-on-primary">
+<th class="p-8 font-headline-md text-headline-md">Service Feature</th>
+<th class="p-8 text-center font-headline-md text-headline-md">E-Commerce</th>
+<th class="p-8 text-center font-headline-md text-headline-md border-x border-on-primary/10">Business</th>
+<th class="p-8 text-center font-headline-md text-headline-md">Full Stack</th>
+</tr>
+</thead>
+<tbody class="text-on-surface">
+<tr class="border-b border-outline-variant/30">
+<td class="p-6 font-bold">Standard Delivery</td>
+<td class="p-6 text-center text-on-surface-variant">4-6 Weeks</td>
+<td class="p-6 text-center text-on-surface-variant border-x border-outline-variant/30">6-8 Weeks</td>
+<td class="p-6 text-center text-on-surface-variant">12+ Weeks</td>
+</tr>
+<tr class="border-b border-outline-variant/30">
+<td class="p-6 font-bold">Security Compliance</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+<td class="p-6 text-center border-x border-outline-variant/30"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">verified</span> SOC2 Ready</td>
+</tr>
+<tr class="border-b border-outline-variant/30">
+<td class="p-6 font-bold">Maintenance Support</td>
+<td class="p-6 text-center">3 Months</td>
+<td class="p-6 text-center border-x border-outline-variant/30">6 Months</td>
+<td class="p-6 text-center font-bold">Lifetime Priority</td>
+</tr>
+<tr class="bg-surface-container-low/50">
+<td class="p-6 font-bold">Starting At</td>
+<td class="p-6 text-center font-headline-md text-headline-md">$15k</td>
+<td class="p-6 text-center font-headline-md text-headline-md border-x border-outline-variant/30">$25k</td>
+<td class="p-6 text-center font-headline-md text-headline-md">$50k+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-8 flex justify-center">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-headline-md hover:scale-105 transition-transform">Request Custom Enterprise Quote</button>
+</div>
+</section>
+<!-- Case Studies Section -->
+<section class="bg-surface py-24 border-y border-outline-variant/30">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<h2 class="font-display-lg text-display-lg mb-16">Case Studies</h2>
+<div class="space-y-16">
+<!-- Case Study 1 -->
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-xl">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, wide-angle shot of a minimalist workstation featuring high-end tech hardware and three ultra-slim monitors. The screens display complex code and architectural diagrams in a clean, modern dark mode. Lighting is focused and dramatic, highlighting the sleek lines and premium materials of the office space." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuVFWvE9FcC0ROghlxH4GLUpq3WAXM8KDyOLGuziSzptFXh8Y-eI49-Run_wZXyOE1ZbiFmrgcvRJiCDuHjXEhS1_0bNuk6Ly5IsUMTXLqCDh4NI5VJ-zqIjvoF0rTnVeSG0Xz6kH5XAS5aYRdaM4887_SjKI3DYCMxCzHsHudnnQr3ciOM27T7RrqxTyQPAxDFNczk2V_0LQydjvznZT6hOTn1Cjg6TwJdQONbCiHdpkfBNktrU7YVtbkohRBb8_Dc676RhYTpc0')"></div>
+</div>
+<div class="w-full md:w-1/2">
+<span class="text-primary font-bold tracking-widest text-label-sm uppercase mb-4 block">Fintech Evolution</span>
+<h3 class="font-headline-md text-headline-md text-3xl mb-6">Revolutionizing High-Frequency Trading Portals</h3>
+<p class="text-on-surface-variant font-body-lg mb-8 leading-relaxed">How we reduced latency by 45% for a global hedge fund using a custom-built WebGL visualization engine and Rust-based backend microservices.</p>
+<div class="flex gap-12 mb-10">
+<div>
+<div class="font-display-lg text-primary text-4xl mb-1">45%</div>
+<div class="font-label-sm text-on-surface-variant">Latency Drop</div>
+</div>
+<div>
+<div class="font-display-lg text-primary text-4xl mb-1">10M+</div>
+<div class="font-label-sm text-on-surface-variant">Daily Trades</div>
+</div>
+</div>
+<a class="inline-flex items-center gap-3 font-bold border-b-2 border-primary pb-1 group" href="#">Read Full Case Study <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Accordion -->
+<section class="px-margin-desktop max-w-container-max mx-auto py-32">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div>
+<h2 class="font-display-lg text-display-lg mb-6">Common Inquiries</h2>
+<p class="text-on-surface-variant font-body-lg">Answers to our most frequently asked technical and procedural questions.</p>
+</div>
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<div class="faq-item border border-outline-variant/30 rounded-xl overflow-hidden transition-all duration-300">
+<button class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-surface-container-low transition-colors" onclick="toggleFaq(0)">
+<span class="font-headline-md text-body-lg">What is your typical development lifecycle?</span>
+<span class="material-symbols-outlined faq-icon transition-transform">expand_more</span>
+</button>
+<div class="faq-content hidden p-6 bg-surface-container-lowest border-t border-outline-variant/30 text-on-surface-variant">
+                            Our lifecycle follows a rigorous Discovery > Architecture > Sprint Cycles > QA > Deployment framework. Each phase includes executive reviews to ensure alignment with business goals and technical precision.
+                        </div>
+</div>
+<!-- FAQ 2 -->
+<div class="faq-item border border-outline-variant/30 rounded-xl overflow-hidden transition-all duration-300">
+<button class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-surface-container-low transition-colors" onclick="toggleFaq(1)">
+<span class="font-headline-md text-body-lg">Do you offer post-launch technical support?</span>
+<span class="material-symbols-outlined faq-icon transition-transform">expand_more</span>
+</button>
+<div class="faq-content hidden p-6 bg-surface-container-lowest border-t border-outline-variant/30 text-on-surface-variant">
+                            Yes, we provide tiered maintenance agreements that range from critical security patches and updates to dedicated 24/7 technical oversight for mission-critical applications.
+                        </div>
+</div>
+<!-- FAQ 3 -->
+<div class="faq-item border border-outline-variant/30 rounded-xl overflow-hidden transition-all duration-300">
+<button class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-surface-container-low transition-colors" onclick="toggleFaq(2)">
+<span class="font-headline-md text-body-lg">Can you integrate with existing legacy systems?</span>
+<span class="material-symbols-outlined faq-icon transition-transform">expand_more</span>
+</button>
+<div class="faq-content hidden p-6 bg-surface-container-lowest border-t border-outline-variant/30 text-on-surface-variant">
+                            Legacy integration is one of our core specialties. We design robust API layers and middleware to bridge modern cloud stacks with on-premise legacy infrastructures securely.
+                        </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Project Detail Modal -->
+<div class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4" id="project-modal">
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-md" onclick="closeModal()"></div>
+<div class="relative glass-card w-full max-w-4xl max-h-[921px] overflow-y-auto rounded-2xl shadow-2xl animate-in fade-in zoom-in duration-300">
+<button class="absolute top-6 right-6 z-10 p-2 hover:bg-surface-container-high rounded-full transition-colors" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="h-64 md:h-auto bg-cover bg-center" data-alt="A detailed view of a sophisticated mobile application UI design featuring dark mode aesthetics, glassmorphic elements, and fluid typography. The interface displays complex financial data and trading charts with absolute clarity and precision. The background is a soft, out-of-focus modern office environment." id="modal-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuCCQFXzey2Zl0sfT8FrhmXXsdoRO255KUqM81wmKZbmkiObeiExghFLADyZ8IflzV0phuFnLEty11VUkW6ZXValegG4OudKS3II0t5wYi7LFCTn891X0rmqf3ZIJ10KbWtf_7NgK87yWGHwLMCXMyS9PYV7Wvm_k-yafhN334UcBPsve3R68gKHE8PxYWw47E6UQpE6LRYqdaPIH2y6imVXG3gqHVIb81bXf_D05Ne3Mwi85J16PB4_xE6nAbP3iQA-US70oJrc0')"></div>
+<div class="p-12">
+<span class="font-label-sm text-label-sm text-primary mb-2 block" id="modal-category">SaaS</span>
+<h2 class="font-display-lg text-display-lg text-3xl mb-6" id="modal-title">Project Title</h2>
+<p class="text-on-surface-variant font-body-md mb-8 leading-relaxed">
+                        Detailed analysis of the project's technical architecture and design methodology. We focused on delivering a high-performance solution that meets the rigorous demands of enterprise users while maintaining an intuitive, editorial user experience.
+                    </p>
+<div class="space-y-4 mb-10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-primary">speed</span></div>
+<div>
+<div class="font-bold text-label-sm">Performance</div>
+<div class="text-on-surface-variant text-label-sm">99th percentile response time < 100ms</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-primary">security</span></div>
+<div>
+<div class="font-bold text-label-sm">Security</div>
+<div class="text-on-surface-variant text-label-sm">End-to-end AES-256 encryption</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold hover:opacity-90 transition-opacity">Launch Full Case Study</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Contact CTA -->
+<div class="fixed bottom-8 right-8 z-40">
+<button class="sticky-cta bg-primary text-on-primary px-8 py-4 rounded-full flex items-center gap-3 hover:scale-105 transition-all group">
+<span class="material-symbols-outlined">send</span>
+<span class="font-bold">Start a Project</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-error rounded-full animate-pulse"></div>
+</button>
+</div>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-highest dark:bg-surface-container-low border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md text-primary mb-4">TechNexus</div>
+<p class="text-on-surface-variant text-body-md mb-6 leading-relaxed">Advancing enterprise technology through technical luxury and engineering precision.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Capabilities</h4>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">SaaS Platforms</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Mobile Engineering</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Cloud Architecture</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Company</h4>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Press Kit</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Security</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-desktop py-8 max-w-container-max mx-auto border-t border-outline-variant/30 text-on-surface-variant font-label-sm text-label-sm flex flex-col md:flex-row justify-between items-center gap-4">
+<div>© 2024 TechNexus Solutions. All rights reserved.</div>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#">LinkedIn</a>
+<a class="hover:text-primary" href="#">Twitter</a>
+<a class="hover:text-primary" href="#">GitHub</a>
+</div>
+</div>
+</footer>
+<script>
+        function filterPortfolio(category) {
+            const items = document.querySelectorAll('.portfolio-item');
+            const buttons = document.querySelectorAll('.portfolio-filter');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active-filter');
+                if(btn.textContent.toLowerCase() === category.toLowerCase() || (category === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active-filter');
+                }
+            });
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                    item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                    }, 50);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleFaq(index) {
+            const items = document.querySelectorAll('.faq-item');
+            const contents = document.querySelectorAll('.faq-content');
+            const icons = document.querySelectorAll('.faq-icon');
+            
+            const isHidden = contents[index].classList.contains('hidden');
+            
+            // Close all
+            contents.forEach(c => c.classList.add('hidden'));
+            icons.forEach(i => i.style.transform = 'rotate(0deg)');
+            items.forEach(it => it.classList.remove('bg-surface-container-low'));
+
+            if(isHidden) {
+                contents[index].classList.remove('hidden');
+                icons[index].style.transform = 'rotate(180deg)';
+                items[index].classList.add('bg-surface-container-low');
+            }
+        }
+
+        function openModal(title) {
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalCategory = document.getElementById('modal-category');
+            
+            modalTitle.textContent = title;
+            // Simulated data update
+            if(title === 'Nexus Cloud') modalCategory.textContent = 'SaaS • Cloud Infrastructure';
+            if(title === 'Elite Real Estate') modalCategory.textContent = 'Web • Luxury Marketplace';
+            if(title === 'Vantage Logistics') modalCategory.textContent = 'Enterprise • Supply Chain';
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Lightweight entrance animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.portfolio-item, .glass-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>
