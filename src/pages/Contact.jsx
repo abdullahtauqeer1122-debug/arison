@@ -111,14 +111,28 @@ export default function Contact() {
                 Chat on WhatsApp
               </a>
             </AnimatedSection>
-            <AnimatedSection delay={100} className="contact-card card">
+             <AnimatedSection delay={100} className="contact-card card">
               <div className="contact-card-icon contact-card-icon-purple">
                 <Mail size={24} />
               </div>
-              <h3 className="heading-md" style={{ marginBottom: '0.5rem' }}>Email Us</h3>
-              <p className="body-sm text-muted" style={{ marginBottom: '1rem' }}>We respond within 24 hours</p>
-              <a href="mailto:arisonnextstacktechnologies@gmail.com" className="contact-link contact-link-sm">
+              <h3 className="heading-md" style={{ marginBottom: '0.5rem' }}>Email & Socials</h3>
+              <p className="body-sm text-muted" style={{ marginBottom: '1rem' }}>Get in touch with us online</p>
+              <a href="mailto:arisonnextstacktechnologies@gmail.com" className="contact-link contact-link-sm" style={{ marginBottom: '0.5rem' }}>
                 arisonnextstacktechnologies@gmail.com
+              </a>
+              <a href="https://instagram.com/arison.nextstack" target="_blank" rel="noreferrer" className="contact-link" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.9rem', justifyContent: 'center' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                Instagram: @arison.nextstack
+              </a>
+              <a href="https://tiktok.com/@arison.nextstack" target="_blank" rel="noreferrer" className="contact-link" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.9rem', justifyContent: 'center', marginTop: '0.25rem' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+                TikTok: @arison.nextstack
               </a>
             </AnimatedSection>
             <AnimatedSection delay={200} className="contact-card card">

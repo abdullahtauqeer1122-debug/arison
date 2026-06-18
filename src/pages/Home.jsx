@@ -17,7 +17,7 @@ const coverflowProjects = [
     id: 101,
     title: 'Custom Enterprise Software Solutions',
     summary: 'Tailored workflow automation, dedicated ERP systems, and cloud portals designed for your business scaling.',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     tags: ['Cloud', 'Enterprise', 'Security', 'ERP'],
     emojiIcon: '💼',
     liveUrl: '/services'
@@ -26,7 +26,7 @@ const coverflowProjects = [
     id: 102,
     title: 'Full Stack Web & Mobile Apps',
     summary: 'High-performance React & Node applications, cross-platform mobile apps built to deliver perfect customer experiences.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
     tags: ['React', 'NodeJS', 'Flutter', 'Next.js'],
     emojiIcon: '💻',
     liveUrl: '/services'
@@ -35,7 +35,7 @@ const coverflowProjects = [
     id: 103,
     title: 'Robust Database & System Architecture',
     summary: 'Scalable data structures, SQL/NoSQL databases, and optimized APIs built to process thousands of requests securely.',
-    image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
     tags: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS'],
     emojiIcon: '⚙️',
     liveUrl: '/services'
@@ -44,7 +44,7 @@ const coverflowProjects = [
     id: 104,
     title: 'Modern UI/UX Design & Prototypes',
     summary: 'Vibrant, responsive interface designs engineered with micro-interactions and dark-mode optimization.',
-    image: 'https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
     tags: ['UI/UX', 'Figma', 'Responsive', 'CSS'],
     emojiIcon: '🎨',
     liveUrl: '/services'
@@ -53,7 +53,7 @@ const coverflowProjects = [
     id: 105,
     title: 'Agile Technology Consultancy',
     summary: 'Collaborate with senior software engineers, architecting custom tech roadmaps to speed up release cycles.',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80',
     tags: ['Agile', 'Scrum', 'CI/CD', 'Consulting'],
     emojiIcon: '🚀',
     liveUrl: '/services'
@@ -62,7 +62,7 @@ const coverflowProjects = [
     id: 106,
     title: 'AI & Data-Driven Platforms',
     summary: 'Intelligent automation systems, predictive analytics, and conversational agents tailored to business goals.',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=800&q=80',
     tags: ['AI/ML', 'Analytics', 'Chatbots', 'Python'],
     emojiIcon: '🧠',
     liveUrl: '/services'
