@@ -6,24 +6,24 @@ import './Videos.css'
 export const initialVideos = [
   {
     id: 1,
-    title: 'Arison NextStack Technologies Corporate Overview',
-    desc: 'An in-depth look at our software engineering processes, office culture in Pakistan, and enterprise client portfolio.',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder video
-    tag: 'Corporate'
+    title: 'Build a Full Stack Web App in 10 Minutes',
+    desc: 'Watch how a complete React + Node.js web application is built from scratch — API, database, and frontend all in one go.',
+    url: 'https://www.youtube.com/embed/FazgJVnrVuI',
+    tag: 'Tutorial'
   },
   {
     id: 2,
-    title: 'Building Scalable SaaS Architectures in 2026',
-    desc: 'Our Head of Engineering explains standard patterns for multi-tenant SaaS structures and cloud cost minimization.',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'How Websites Are Made — Web Development Explained',
+    desc: 'A clear and visual breakdown of how modern websites work, from frontend to backend, databases, and hosting.',
+    url: 'https://www.youtube.com/embed/ysEN5RaKOlA',
     tag: 'Tech Talk'
   },
   {
     id: 3,
-    title: 'Custom ERP & Business Portal Walkthrough',
-    desc: 'Demonstrating a custom logistics ERP built by Arison NextStack, featuring real-time fleet tracking and billing.',
-    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    tag: 'Case Study'
+    title: 'What is Full Stack Web Development?',
+    desc: 'Understand the full picture of web development — frontend, backend, APIs, and how they all connect in real enterprise projects.',
+    url: 'https://www.youtube.com/embed/ysEN5RaKOlA',
+    tag: 'Explainer'
   }
 ]
 
