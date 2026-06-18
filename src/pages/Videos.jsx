@@ -6,24 +6,24 @@ import './Videos.css'
 export const initialVideos = [
   {
     id: 1,
-    title: 'Build a Full Stack Web App in 10 Minutes',
-    desc: 'Watch how a complete React + Node.js web application is built from scratch — API, database, and frontend all in one go.',
-    url: 'https://www.youtube.com/embed/FazgJVnrVuI',
-    tag: 'Tutorial'
+    title: 'How Web Development Works (Step-by-Step)',
+    desc: 'An excellent high-level overview of how web development actually works, from HTML/CSS to databases, DNS, and hosting servers.',
+    url: 'https://www.youtube.com/embed/ZxKM3DCV2kE',
+    tag: 'Web Development Basics'
   },
   {
     id: 2,
-    title: 'How Websites Are Made — Web Development Explained',
-    desc: 'A clear and visual breakdown of how modern websites work, from frontend to backend, databases, and hosting.',
-    url: 'https://www.youtube.com/embed/ysEN5RaKOlA',
-    tag: 'Tech Talk'
+    title: 'I Built a Full Stack SaaS App in 10 Minutes',
+    desc: 'Watch the rapid architecture and deployment of a modern React, Node, and database application using cutting edge developer tools.',
+    url: 'https://www.youtube.com/embed/rHux0gMZ3Eg',
+    tag: 'Hands-on Coding'
   },
   {
     id: 3,
-    title: 'What is Full Stack Web Development?',
-    desc: 'Understand the full picture of web development — frontend, backend, APIs, and how they all connect in real enterprise projects.',
-    url: 'https://www.youtube.com/embed/ysEN5RaKOlA',
-    tag: 'Explainer'
+    title: 'Web Development Career Guide & Roadmaps',
+    desc: 'A complete practical roadmap showing exactly what technologies, tools, and platforms you should master for full-stack engineering.',
+    url: 'https://www.youtube.com/embed/Q33KBiDriJY',
+    tag: 'Roadmap Guide'
   }
 ]
 
@@ -33,10 +33,10 @@ export default function Videos() {
   useEffect(() => {
     const videosVersion = localStorage.getItem('arison_videos_version')
     const stored = localStorage.getItem('arison_videos')
-    if (!stored || videosVersion !== 'v2') {
+    if (!stored || videosVersion !== 'v3') {
       // Reset to new web dev videos
       localStorage.setItem('arison_videos', JSON.stringify(initialVideos))
-      localStorage.setItem('arison_videos_version', 'v2')
+      localStorage.setItem('arison_videos_version', 'v3')
       setVideos(initialVideos)
     } else {
       setVideos(JSON.parse(stored))

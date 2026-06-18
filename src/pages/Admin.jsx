@@ -144,9 +144,9 @@ export default function Admin() {
     }
     // Force reset videos to new web dev content (version check to bust old cache)
     const videosVersion = localStorage.getItem('arison_videos_version')
-    if (!localStorage.getItem('arison_videos') || videosVersion !== 'v2') {
+    if (!localStorage.getItem('arison_videos') || videosVersion !== 'v3') {
       localStorage.setItem('arison_videos', JSON.stringify(initialVideos))
-      localStorage.setItem('arison_videos_version', 'v2')
+      localStorage.setItem('arison_videos_version', 'v3')
     }
     if (!localStorage.getItem('arison_jobs')) {
       localStorage.setItem('arison_jobs', JSON.stringify([])) // Starts empty as they are not actively hiring

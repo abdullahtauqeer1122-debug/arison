@@ -122,7 +122,7 @@ export default function Pricing() {
                 <div className="pricing-card-title">{pkg.title}</div>
                 <div className="pricing-card-price">
                   {pkg.price}
-                  {pkg.price !== 'Custom Quote' && <span>/project</span>}
+                  {pkg.price !== 'Custom Quote' && <span className="per-project">/project</span>}
                 </div>
                 <p className="pricing-card-desc">{pkg.desc}</p>
               </div>
