@@ -147,7 +147,6 @@ export default function Footer() {
             © {year} Arison NextStack Technologies. All rights reserved.
           </p>
           <div className="footer-bottom-links">
-            <Link to="/info@arison.pk" className="footer-bottom-link">Admin Portal</Link>
             <a href="#" className="footer-bottom-link">Privacy Policy</a>
             <a href="#" className="footer-bottom-link">Terms of Service</a>
           </div>

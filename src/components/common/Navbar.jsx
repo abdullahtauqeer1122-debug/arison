@@ -175,12 +175,7 @@ export default function Navbar() {
             </NavLink>
           )
         )}
-        <div className="mobile-group">
-          <div className="mobile-group-label">Admin</div>
-          <Link to="/info@arison.pk" className="mobile-link mobile-child" onClick={() => setMobileOpen(false)}>
-            Admin Dashboard
-          </Link>
-        </div>
+
         <div className="mobile-cta">
           <Link to="/contact" className="btn btn-primary" onClick={() => setMobileOpen(false)}>
             Start a Project <ArrowRight size={16} />
