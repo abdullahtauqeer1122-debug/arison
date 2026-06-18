@@ -196,18 +196,19 @@
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-xl);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
   margin-bottom: var(--space-5xl);
   justify-content: center;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
+    gap: var(--space-xl);
   }
 }
 

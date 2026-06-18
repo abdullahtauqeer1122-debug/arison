@@ -7,9 +7,67 @@ import {
 } from 'lucide-react'
 import AnimatedSection from '../components/common/AnimatedSection'
 import ThreeBackground from '../components/common/ThreeBackground'
+import ProjectCoverflow from '../components/common/ProjectCoverflow'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import { useCounterAnimation } from '../hooks/useCounterAnimation'
 import './Home.css'
+
+const coverflowProjects = [
+  {
+    id: 101,
+    title: 'Smart Cloud Inventory App (White Label)',
+    summary: 'Cloud-based inventory management Android app with multi-database architecture.',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    tags: ['Android', 'PostgreSQL', 'Redis', 'SQLite'],
+    emojiIcon: '📦',
+    liveUrl: '/projects'
+  },
+  {
+    id: 102,
+    title: 'NextGen Renting Lajpal Rent A Car',
+    summary: 'High-performance rent-a-car marketplace platform with dynamic billing and rate limiting.',
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80',
+    tags: ['Next.js', 'PostgreSQL', 'Tailwind'],
+    emojiIcon: '🚗',
+    liveUrl: '/projects'
+  },
+  {
+    id: 103,
+    title: 'MediCore — Online Pharmacy & POS',
+    summary: 'Full-stack online pharmacy store and point-of-sale system with an integrated AI Chatbot.',
+    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80',
+    tags: ['Laravel', 'MySQL', 'PHP', 'Blade'],
+    emojiIcon: '💊',
+    liveUrl: '/projects'
+  },
+  {
+    id: 104,
+    title: 'AlphaTrade SaaS Analytics Platform',
+    summary: 'Real-time financial analytics dashboard displaying high-throughput trading signals.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    tags: ['React', 'D3.js', 'Node.js', 'WebSockets'],
+    emojiIcon: '📊',
+    liveUrl: '/projects'
+  },
+  {
+    id: 105,
+    title: 'FitLife Mobile Companion App',
+    summary: 'Cross-platform health tracking and workout scheduling application with clean dashboard.',
+    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
+    tags: ['Flutter', 'Firebase', 'Node.js'],
+    emojiIcon: '💪',
+    liveUrl: '/projects'
+  },
+  {
+    id: 106,
+    title: 'EcoSphere IoT Operations Portal',
+    summary: 'Enterprise IoT monitor for smart city devices, environmental analytics and alerts.',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    tags: ['Next.js', 'GraphQL', 'AWS IoT', 'InfluxDB'],
+    emojiIcon: '🌍',
+    liveUrl: '/projects'
+  }
+]
 
 /* ─── Animated Stat ─── */
 function StatItem({ value, suffix = '', label, delay = 0 }) {
@@ -160,13 +218,10 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            style={{ width: '100%', maxWidth: '600px', overflow: 'visible' }}
           >
             <div className="hero-image-glow" />
-            <img 
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" 
-              alt="Arison NextStack Software Engineering Team" 
-              className="hero-image"
-            />
+            <ProjectCoverflow projects={coverflowProjects} />
           </motion.div>
         </div>
 
