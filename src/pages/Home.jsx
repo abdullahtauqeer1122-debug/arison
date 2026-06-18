@@ -104,53 +104,69 @@ export default function Home() {
     >
       {/* ── HERO ── */}
       <section className="hero" ref={heroRef} aria-label="Hero">
-        <div className="container hero-content">
-          <div className="hero-badge">
-            <span className="badge badge-cyan">
-              <Zap size={10} />
-              Enterprise Technology Solutions
-            </span>
+        <div className="container hero-grid-wrapper">
+          <div className="hero-content">
+            <div className="hero-badge">
+              <span className="badge badge-cyan">
+                <Zap size={10} />
+                Enterprise Technology Solutions
+              </span>
+            </div>
+
+            <h1 className="hero-headline display-xl">
+              Building Technology<br />
+              That Drives{' '}
+              <span className="text-grad">Business Forward</span>
+            </h1>
+
+            <p className="hero-sub body-lg text-muted">
+              Arison NextStack Technologies is a Pakistan-based software engineering powerhouse. Since our launch in 2002, we have engineered enterprise-grade software and SaaS solutions that help organizations innovate, scale, and automate operations globally.
+            </p>
+
+            <div className="hero-actions">
+              <Link to="/contact" className="btn btn-primary btn-lg">
+                Start Your Project <ArrowRight size={18} />
+              </Link>
+              <Link to="/services" className="btn btn-secondary btn-lg">
+                Explore Services
+              </Link>
+            </div>
+
+            <motion.div
+              className="hero-trust"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+            >
+              <div className="trust-item">
+                <CheckCircle2 size={14} className="trust-icon" />
+                <span>ISO-ready processes</span>
+              </div>
+              <div className="trust-sep" />
+              <div className="trust-item">
+                <CheckCircle2 size={14} className="trust-icon" />
+                <span>NDA-protected projects</span>
+              </div>
+              <div className="trust-sep" />
+              <div className="trust-item">
+                <CheckCircle2 size={14} className="trust-icon" />
+                <span>On-time delivery guarantee</span>
+              </div>
+            </motion.div>
           </div>
 
-          <h1 className="hero-headline display-xl">
-            Building Technology<br />
-            That Drives{' '}
-            <span className="text-grad">Business Forward</span>
-          </h1>
-
-          <p className="hero-sub body-lg text-muted">
-            Arison NextStack Technologies is a Pakistan-based software engineering powerhouse. Since our launch in 2002, we have engineered enterprise-grade software and SaaS solutions that help organizations innovate, scale, and automate operations globally.
-          </p>
-
-          <div className="hero-actions">
-            <Link to="/contact" className="btn btn-primary btn-lg">
-              Start Your Project <ArrowRight size={18} />
-            </Link>
-            <Link to="/services" className="btn btn-secondary btn-lg">
-              Explore Services
-            </Link>
-          </div>
-
-          <motion.div
-            className="hero-trust"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1 }}
+          <motion.div 
+            className="hero-image-container"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="trust-item">
-              <CheckCircle2 size={14} className="trust-icon" />
-              <span>ISO-ready processes</span>
-            </div>
-            <div className="trust-sep" />
-            <div className="trust-item">
-              <CheckCircle2 size={14} className="trust-icon" />
-              <span>NDA-protected projects</span>
-            </div>
-            <div className="trust-sep" />
-            <div className="trust-item">
-              <CheckCircle2 size={14} className="trust-icon" />
-              <span>On-time delivery guarantee</span>
-            </div>
+            <div className="hero-image-glow" />
+            <img 
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" 
+              alt="Arison NextStack Software Engineering Team" 
+              className="hero-image"
+            />
           </motion.div>
         </div>
 

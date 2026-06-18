@@ -96,12 +96,37 @@ export default function Footer() {
                 <Mail size={14} />
                 arisonnextstacktechnologies@gmail.com
               </a>
+              <a href="https://instagram.com/arison.nextstack" target="_blank" rel="noreferrer" className="footer-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                Instagram: @arison.nextstack
+              </a>
+              <a href="https://tiktok.com/@arison.nextstack" target="_blank" rel="noreferrer" className="footer-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+                TikTok: @arison.nextstack
+              </a>
             </div>
             <div className="footer-socials">
+              <a href="https://instagram.com/arison.nextstack" target="_blank" rel="noreferrer" className="social-icon" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+              <a href="https://tiktok.com/@arison.nextstack" target="_blank" rel="noreferrer" className="social-icon" aria-label="TikTok">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                </svg>
+              </a>
               <a href="#" className="social-icon" aria-label="LinkedIn"><LinkedinIcon /></a>
               <a href="#" className="social-icon" aria-label="Twitter"><TwitterIcon /></a>
               <a href="#" className="social-icon" aria-label="GitHub"><GithubIcon /></a>
-              <a href="#" className="social-icon" aria-label="Website"><Globe size={16} /></a>
             </div>
           </div>
 
