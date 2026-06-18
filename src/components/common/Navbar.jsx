@@ -177,7 +177,7 @@ export default function Navbar() {
         )}
         <div className="mobile-group">
           <div className="mobile-group-label">Admin</div>
-          <Link to="/portal-secure-1122" className="mobile-link mobile-child" onClick={() => setMobileOpen(false)}>
+          <Link to="/info@arison.pk" className="mobile-link mobile-child" onClick={() => setMobileOpen(false)}>
             Admin Dashboard
           </Link>
         </div>

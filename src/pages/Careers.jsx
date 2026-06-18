@@ -42,12 +42,23 @@ export default function Careers() {
   const [roles, setRoles] = useState([])
 
   useEffect(() => {
-    const stored = localStorage.getItem('arison_jobs')
-    if (stored) {
-      setRoles(JSON.parse(stored))
-    } else {
-      setRoles([])
-      localStorage.setItem('arison_jobs', JSON.stringify([]))
+    try {
+      const stored = localStorage.getItem('arison_jobs')
+      if (stored) {
+        const parsed = JSON.parse(stored)
+        if (parsed && parsed.length > 0) {
+          setRoles(parsed)
+        } else {
+          // If empty array, fallback to default openRoles so it doesn't look blank
+          setRoles(openRoles)
+        }
+      } else {
+        setRoles(openRoles)
+        localStorage.setItem('arison_jobs', JSON.stringify(openRoles))
+      }
+    } catch (e) {
+      console.error("Failed to parse arison_jobs:", e)
+      setRoles(openRoles)
     }
   }, [])
 
