@@ -6,7 +6,7 @@ import './Pricing.css'
 const packages = [
   {
     title: 'E-Commerce Website',
-    price: 'PKR 10,000',
+    price: 'USD 100 - 1,500',
     desc: 'Perfect for local brands & retail stores trying to launch their digital sales journey.',
     features: [
       { text: 'Custom Design (5 Pages)', enabled: true },
@@ -24,7 +24,7 @@ const packages = [
   },
   {
     title: 'Business Website',
-    price: 'PKR 15,000',
+    price: 'USD 20 - 200',
     desc: 'High-converting portfolio & corporate website to showcase your service offering.',
     features: [
       { text: 'Premium Custom Design (10 Pages)', enabled: true },
@@ -42,7 +42,7 @@ const packages = [
   },
   {
     title: 'Full Stack App',
-    price: 'PKR 20,000 - 25,000',
+    price: 'USD 1,000 - 15,000',
     desc: 'Dynamic custom web app tailored to automate your internal systems or workflows.',
     features: [
       { text: 'Modern frontend React + Node.js', enabled: true },
@@ -104,7 +104,7 @@ export default function Pricing() {
             Investment Packages Custom Fit For Your Growth
           </h1>
           <p className="body-lg text-secondary">
-            Get premium engineering and beautiful designs with transparent, competitive rates in Pakistan.
+            Get premium engineering and beautiful designs with transparent, competitive rates.
           </p>
         </div>
 

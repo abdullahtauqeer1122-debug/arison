@@ -332,7 +332,7 @@ export default function Home() {
                 <h3 className="pricing-title">E-Commerce Site</h3>
                 <p className="body-sm text-muted">Complete professional online storefront solutions.</p>
                 <div className="pricing-price">
-                  10,000 <span>PKR</span>
+                  $100 - $1,500 <span>USD</span>
                 </div>
               </div>
               <ul className="pricing-features">
@@ -353,7 +353,7 @@ export default function Home() {
                 </li>
               </ul>
               <a 
-                href="https://wa.me/923004003075?text=Hi! I am interested in building an E-Commerce Site starting at 10k PKR." 
+                href="https://wa.me/923004003075?text=Hi! I am interested in building an E-Commerce Site starting at $100 - $1,500 USD." 
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn btn-primary w-full"
@@ -370,7 +370,7 @@ export default function Home() {
                 <h3 className="pricing-title">Full Stack Web App</h3>
                 <p className="body-sm text-muted">Bespoke customized web software & complex workflows.</p>
                 <div className="pricing-price">
-                  20,000 - 25,000 <span>PKR</span>
+                  $1,000 - $15,000 <span>USD</span>
                 </div>
               </div>
               <ul className="pricing-features">
@@ -391,7 +391,7 @@ export default function Home() {
                 </li>
               </ul>
               <a 
-                href="https://wa.me/923004003075?text=Hi! I am interested in building a Full Stack Web App starting at 20-25k PKR." 
+                href="https://wa.me/923004003075?text=Hi! I am interested in building a Full Stack Web App starting at $1,000 - $15,000 USD." 
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn btn-primary w-full"
