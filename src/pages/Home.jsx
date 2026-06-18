@@ -2,72 +2,91 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  ArrowRight, Zap, Shield, Globe, Cpu, Code2, Smartphone,
+  ArrowRight, Zap, Shield, Globe, Code2, Smartphone,
   Cloud, Brain, BarChart3, Users, Award, CheckCircle2, Star
 } from 'lucide-react'
 import AnimatedSection from '../components/common/AnimatedSection'
 import ThreeBackground from '../components/common/ThreeBackground'
-import ProjectCoverflow from '../components/common/ProjectCoverflow'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import { useCounterAnimation } from '../hooks/useCounterAnimation'
 import './Home.css'
 
-const coverflowProjects = [
+/* ─── Hero Image Slider ─── */
+const heroImages = [
   {
-    id: 101,
-    title: 'Custom Enterprise Software Solutions',
-    summary: 'Tailored workflow automation, dedicated ERP systems, and cloud portals designed for your business scaling.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
-    tags: ['Cloud', 'Enterprise', 'Security', 'ERP'],
-    emojiIcon: '💼',
-    liveUrl: '/services'
+    src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85',
+    alt: 'Web Developer coding on dual monitors with React code',
+    label: 'Modern Web Development'
   },
   {
-    id: 102,
-    title: 'Full Stack Web & Mobile Apps',
-    summary: 'High-performance React & Node applications, cross-platform mobile apps built to deliver perfect customer experiences.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-    tags: ['React', 'NodeJS', 'Flutter', 'Next.js'],
-    emojiIcon: '💻',
-    liveUrl: '/services'
+    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85',
+    alt: 'SaaS analytics dashboard with real-time data charts',
+    label: 'SaaS Analytics Platform'
   },
   {
-    id: 103,
-    title: 'Robust Database & System Architecture',
-    summary: 'Scalable data structures, SQL/NoSQL databases, and optimized APIs built to process thousands of requests securely.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
-    tags: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS'],
-    emojiIcon: '⚙️',
-    liveUrl: '/services'
+    src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85',
+    alt: 'Professional software team collaboration dashboard',
+    label: 'Enterprise Software'
   },
   {
-    id: 104,
-    title: 'Modern UI/UX Design & Prototypes',
-    summary: 'Vibrant, responsive interface designs engineered with micro-interactions and dark-mode optimization.',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
-    tags: ['UI/UX', 'Figma', 'Responsive', 'CSS'],
-    emojiIcon: '🎨',
-    liveUrl: '/services'
+    src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=85',
+    alt: 'Clean programming code editor with JavaScript',
+    label: 'Full Stack Engineering'
   },
   {
-    id: 105,
-    title: 'Agile Technology Consultancy',
-    summary: 'Collaborate with senior software engineers, architecting custom tech roadmaps to speed up release cycles.',
-    image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80',
-    tags: ['Agile', 'Scrum', 'CI/CD', 'Consulting'],
-    emojiIcon: '🚀',
-    liveUrl: '/services'
+    src: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=900&q=85',
+    alt: 'Data visualization and business intelligence charts',
+    label: 'Cloud & Data Solutions'
   },
-  {
-    id: 106,
-    title: 'AI & Data-Driven Platforms',
-    summary: 'Intelligent automation systems, predictive analytics, and conversational agents tailored to business goals.',
-    image: 'https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=800&q=80',
-    tags: ['AI/ML', 'Analytics', 'Chatbots', 'Python'],
-    emojiIcon: '🧠',
-    liveUrl: '/services'
-  }
 ]
+
+function HeroSlider() {
+  const [active, setActive] = useState(0)
+  const [animating, setAnimating] = useState(false)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAnimating(true)
+      setTimeout(() => {
+        setActive(prev => (prev + 1) % heroImages.length)
+        setAnimating(false)
+      }, 400)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className="hero-slider">
+      <div className="hero-slider-frame">
+        <div className="hero-slider-glow" />
+        {heroImages.map((img, i) => (
+          <img
+            key={i}
+            src={img.src}
+            alt={img.alt}
+            className={`hero-slide-img${
+              i === active ? ' active' : ''
+            }${animating && i === active ? ' exit' : ''}`}
+          />
+        ))}
+        <div className="hero-slide-label">
+          <span>{heroImages[active].label}</span>
+        </div>
+      </div>
+      <div className="hero-slider-dots">
+        {heroImages.map((_, i) => (
+          <button
+            key={i}
+            className={`hero-dot${i === active ? ' active' : ''}`}
+            onClick={() => setActive(i)}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 
 /* ─── Animated Stat ─── */
 function StatItem({ value, suffix = '', label, delay = 0 }) {
@@ -218,10 +237,8 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ width: '100%', maxWidth: '600px', overflow: 'visible' }}
           >
-            <div className="hero-image-glow" />
-            <ProjectCoverflow projects={coverflowProjects} />
+            <HeroSlider />
           </motion.div>
         </div>
 

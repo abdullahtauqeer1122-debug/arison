@@ -29,6 +29,13 @@ export default function ProjectCoverflow({ projects }) {
     setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1))
   }
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext()
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [projects.length])
+
   const activeProject = projects[activeIndex]
 
   return (
