@@ -15,57 +15,57 @@ import './Home.css'
 const coverflowProjects = [
   {
     id: 101,
-    title: 'Smart Cloud Inventory App (White Label)',
-    summary: 'Cloud-based inventory management Android app with multi-database architecture.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
-    tags: ['Android', 'PostgreSQL', 'Redis', 'SQLite'],
-    emojiIcon: '📦',
-    liveUrl: '/projects'
+    title: 'Custom Enterprise Software Solutions',
+    summary: 'Tailored workflow automation, dedicated ERP systems, and cloud portals designed for your business scaling.',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+    tags: ['Cloud', 'Enterprise', 'Security', 'ERP'],
+    emojiIcon: '💼',
+    liveUrl: '/services'
   },
   {
     id: 102,
-    title: 'NextGen Renting Lajpal Rent A Car',
-    summary: 'High-performance rent-a-car marketplace platform with dynamic billing and rate limiting.',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80',
-    tags: ['Next.js', 'PostgreSQL', 'Tailwind'],
-    emojiIcon: '🚗',
-    liveUrl: '/projects'
+    title: 'Full Stack Web & Mobile Apps',
+    summary: 'High-performance React & Node applications, cross-platform mobile apps built to deliver perfect customer experiences.',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+    tags: ['React', 'NodeJS', 'Flutter', 'Next.js'],
+    emojiIcon: '💻',
+    liveUrl: '/services'
   },
   {
     id: 103,
-    title: 'MediCore — Online Pharmacy & POS',
-    summary: 'Full-stack online pharmacy store and point-of-sale system with an integrated AI Chatbot.',
-    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80',
-    tags: ['Laravel', 'MySQL', 'PHP', 'Blade'],
-    emojiIcon: '💊',
-    liveUrl: '/projects'
+    title: 'Robust Database & System Architecture',
+    summary: 'Scalable data structures, SQL/NoSQL databases, and optimized APIs built to process thousands of requests securely.',
+    image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80',
+    tags: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS'],
+    emojiIcon: '⚙️',
+    liveUrl: '/services'
   },
   {
     id: 104,
-    title: 'AlphaTrade SaaS Analytics Platform',
-    summary: 'Real-time financial analytics dashboard displaying high-throughput trading signals.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-    tags: ['React', 'D3.js', 'Node.js', 'WebSockets'],
-    emojiIcon: '📊',
-    liveUrl: '/projects'
+    title: 'Modern UI/UX Design & Prototypes',
+    summary: 'Vibrant, responsive interface designs engineered with micro-interactions and dark-mode optimization.',
+    image: 'https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&w=800&q=80',
+    tags: ['UI/UX', 'Figma', 'Responsive', 'CSS'],
+    emojiIcon: '🎨',
+    liveUrl: '/services'
   },
   {
     id: 105,
-    title: 'FitLife Mobile Companion App',
-    summary: 'Cross-platform health tracking and workout scheduling application with clean dashboard.',
-    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80',
-    tags: ['Flutter', 'Firebase', 'Node.js'],
-    emojiIcon: '💪',
-    liveUrl: '/projects'
+    title: 'Agile Technology Consultancy',
+    summary: 'Collaborate with senior software engineers, architecting custom tech roadmaps to speed up release cycles.',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    tags: ['Agile', 'Scrum', 'CI/CD', 'Consulting'],
+    emojiIcon: '🚀',
+    liveUrl: '/services'
   },
   {
     id: 106,
-    title: 'EcoSphere IoT Operations Portal',
-    summary: 'Enterprise IoT monitor for smart city devices, environmental analytics and alerts.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-    tags: ['Next.js', 'GraphQL', 'AWS IoT', 'InfluxDB'],
-    emojiIcon: '🌍',
-    liveUrl: '/projects'
+    title: 'AI & Data-Driven Platforms',
+    summary: 'Intelligent automation systems, predictive analytics, and conversational agents tailored to business goals.',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    tags: ['AI/ML', 'Analytics', 'Chatbots', 'Python'],
+    emojiIcon: '🧠',
+    liveUrl: '/services'
   }
 ]
 
