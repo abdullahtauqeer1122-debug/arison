@@ -78,10 +78,9 @@
   font-size: 1.25rem;
 }
 
-/* Card Image */
 .coverflow-card-image-container {
   width: 100%;
-  height: 230px;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -292,7 +291,7 @@
     height: 450px;
   }
   .coverflow-card-image-container {
-    height: 180px;
+    height: 100%;
   }
   .coverflow-control {
     width: 40px;

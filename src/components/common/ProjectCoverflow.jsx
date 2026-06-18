@@ -86,43 +86,9 @@ export default function ProjectCoverflow({ projects }) {
                 onClick={() => setActiveIndex(idx)}
               >
                 <div className="coverflow-card">
-                  {/* Badge Icon (Emoji based or fallback) */}
-                  <div className="coverflow-card-badge">
-                    <span className="badge-icon">{proj.emojiIcon || '💻'}</span>
-                  </div>
-
-                  {/* Project Image */}
-                  <div className="coverflow-card-image-container">
+                  {/* Project Image ONLY */}
+                  <div className="coverflow-card-image-container" style={{ height: '100%' }}>
                     <img src={imagePlaceholder} alt={proj.title} className="coverflow-card-img" />
-                    <div className="coverflow-card-image-overlay" />
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="coverflow-card-content">
-                    {/* Tech Badges */}
-                    <div className="coverflow-card-tech">
-                      {proj.tags && proj.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="tech-tag-pill">{tag.toUpperCase()}</span>
-                      ))}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="coverflow-card-title">{proj.title}</h3>
-
-                    {/* Description */}
-                    <p className="coverflow-card-desc">{proj.summary || proj.desc}</p>
-
-                    {/* Action buttons */}
-                    <div className="coverflow-card-actions">
-                      <a 
-                        href={proj.liveUrl || '#'} 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="coverflow-view-details"
-                      >
-                        <Globe size={15} /> VIEW DETAILS
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -147,12 +113,6 @@ export default function ProjectCoverflow({ projects }) {
         ))}
       </div>
 
-      {/* Pagination & Active Details label */}
-      <div className="coverflow-pagination-label">
-        <span className="pag-numbers">{activeIndex + 1} / {projects.length}</span>
-        <span className="pag-divider">—</span>
-        <span className="pag-title">{activeProject?.title?.toUpperCase()}</span>
-      </div>
     </div>
   )
 }
