@@ -28,7 +28,30 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    
+    // Page View Tracking
+    const viewsKey = 'arison_analytics_views'
+    const currentViews = parseInt(localStorage.getItem(viewsKey) || '0', 10)
+    localStorage.setItem(viewsKey, (currentViews + 1).toString())
+
+    // Path wise views tracking
+    const pathKey = 'arison_analytics_path_views'
+    const pathViews = JSON.parse(localStorage.getItem(pathKey) || '{}')
+    pathViews[location.pathname] = (pathViews[location.pathname] || 0) + 1
+    localStorage.setItem(pathKey, JSON.stringify(pathViews))
   }, [location.pathname])
+
+  // Global Clicks Tracking
+  useEffect(() => {
+    const handleGlobalClick = () => {
+      const clickKey = 'arison_analytics_clicks'
+      const currentClicks = parseInt(localStorage.getItem(clickKey) || '0', 10)
+      localStorage.setItem(clickKey, (currentClicks + 1).toString())
+    }
+
+    window.addEventListener('click', handleGlobalClick)
+    return () => window.removeEventListener('click', handleGlobalClick)
+  }, [])
 
   const isAdmin = location.pathname === '/info@arison.pk'
 

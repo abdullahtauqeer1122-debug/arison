@@ -26,6 +26,9 @@ export default function Admin() {
   const [leads, setLeads] = useState([])
   const [videos, setVideos] = useState([])
   const [jobs, setJobs] = useState([])
+  const [totalViews, setTotalViews] = useState(0)
+  const [totalClicks, setTotalClicks] = useState(0)
+  const [pathViews, setPathViews] = useState({})
 
   // Form states
   const [editingId, setEditingId] = useState(null)
@@ -152,6 +155,11 @@ export default function Admin() {
     setLeads(JSON.parse(localStorage.getItem('arison_contact_leads')))
     setVideos(JSON.parse(localStorage.getItem('arison_videos')))
     setJobs(JSON.parse(localStorage.getItem('arison_jobs') || '[]'))
+
+    // Analytics load
+    setTotalViews(parseInt(localStorage.getItem('arison_analytics_views') || '0', 10))
+    setTotalClicks(parseInt(localStorage.getItem('arison_analytics_clicks') || '0', 10))
+    setPathViews(JSON.parse(localStorage.getItem('arison_analytics_path_views') || '{}'))
   }, [])
 
   // Sync utilities
@@ -444,26 +452,43 @@ export default function Admin() {
           {/* Tab 1: Overview */}
           {activeTab === 'overview' && (
             <div>
-              <div className="overview-stats">
+              <div className="overview-stats" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                <div className="stat-card">
+                  <div className="stat-card-title">Unique Page Views</div>
+                  <div className="stat-card-value" style={{ color: 'var(--cyan)' }}>{totalViews}</div>
+                </div>
+                <div className="stat-card">
+                  <div className="stat-card-title">Interactions / Clicks</div>
+                  <div className="stat-card-value" style={{ color: 'var(--purple)' }}>{totalClicks}</div>
+                </div>
                 <div className="stat-card">
                   <div className="stat-card-title">Live Projects</div>
                   <div className="stat-card-value">{projects.length}</div>
                 </div>
                 <div className="stat-card">
-                  <div className="stat-card-title">Articles Published</div>
-                  <div className="stat-card-value">{blogs.length}</div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-card-title">Total Inbound Leads</div>
+                  <div className="stat-card-title">Inbound Leads</div>
                   <div className="stat-card-value">{leads.length}</div>
                 </div>
               </div>
 
               <div className="overview-grid">
                 <div className="dashboard-card">
+                  <div className="dashboard-card-title">Page Breakdown (Views)</div>
+                  <div className="leads-list" style={{ maxHeight: '280px', overflowY: 'auto' }}>
+                    {Object.entries(pathViews).map(([path, count]) => (
+                      <div key={path} className="lead-item" style={{ padding: '10px 0', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="body-sm font-code" style={{ color: 'var(--text-secondary)' }}>{path === '/' ? '/ (Home)' : path}</span>
+                        <span className="body-sm" style={{ fontWeight: 700, color: 'var(--cyan)' }}>{count} views</span>
+                      </div>
+                    ))}
+                    {Object.keys(pathViews).length === 0 && <p className="body-sm text-muted">No page views recorded yet.</p>}
+                  </div>
+                </div>
+
+                <div className="dashboard-card">
                   <div className="dashboard-card-title">Recent Customer Leads</div>
                   <div className="leads-list">
-                    {leads.slice(-5).reverse().map((lead) => (
+                    {leads.slice(-3).reverse().map((lead) => (
                       <div key={lead.id} className="lead-item">
                         <div>
                           <div className="lead-info-title">{lead.name} ({lead.company || lead.projectType})</div>
